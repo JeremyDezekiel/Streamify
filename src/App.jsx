@@ -57,30 +57,41 @@ function App() {
             </div>
           </nav>
 
-          <div className="position-relative">
-            <div>
-              <div className='position-absolute top-50 start-0 translate-middle-y ms-5'>
-                <div>
+          <div className='position-relative'>
+            <img className='w-100' src='https://occ-0-58-64.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABV0-RxSQcYC25cCe4B6hJQlo5_8u1J8ZQA-aPv_CwRWjh3YdF2sGHWYLr47NZRxgYRAqnVF6fpBM_hGJ9KRL29L35yt6axU86iNd.webp?r=f78' alt='' />
+            <div className='container'>
+              <div className='row'>
+                <div className='col-lg-4 position-absolute top-50 start-0 translate-middle-y ms-5'>
                   <img alt='' className='' src='https://occ-0-58-64.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUCBN072AyO2JluEcf6t1SvtMBsO7yQ_rhU9fuMYDzr9xVtnUmOCNzuPwPZhfxz6pBrQdzFm-cg1V5Wb0o3VzZ8jWv6gQaVf_EK4dz3T_4awSHqRsoIG1ZQrTUFFO_Rdueq_BfCaLdiTp41kjGIi7pakraiptG8pw5K5o29mWJ6Wif0Gad8nJA.webp?r=15b' title='' />
-                </div>
-                <div>
-                  <p>
+                  <p className='fs-4'>
                     Ex-insiders from the world's biggest brands share the manipulative tricks they use to keep customers consuming — at a devastating cost to our lives.
                   </p>
+                  <div class="">
+                    <div className='row'>
+                      <div className='col'>
+                        <button type="button" class="btn btn-secondary btn-lg">Play</button>
+                      </div>
+                      <div className='col'>
+                        <button type="button" class="btn btn-secondary btn-lg">More Info</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='col-lg-4'>
+                  <div className='position-absolute bottom-50 end-0 translate-middle-y me-5'>
+                    <span>
+                      13+
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className='position-absolute top-50 end-0 translate-middle-y me-5'>
-                <div>
 
-                </div>
-              </div>
-              <img className='w-100' src='https://occ-0-58-64.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABV0-RxSQcYC25cCe4B6hJQlo5_8u1J8ZQA-aPv_CwRWjh3YdF2sGHWYLr47NZRxgYRAqnVF6fpBM_hGJ9KRL29L35yt6axU86iNd.webp?r=f78' alt='' />
             </div>
           </div>
         </section>
         <section>
           <div>
-            
+
           </div>
         </section>
       </main>
