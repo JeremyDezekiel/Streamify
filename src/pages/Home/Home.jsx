@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import playIcon from '../../assets/playIcon.png'
 import infoIcon from '../../assets/infoIcon.png'
 import replayIcon from '../../assets/replayIcon.png'
+import Cards from '../../components/Cards/Cards'
 
 function Home() {
     return (
@@ -23,7 +24,6 @@ function Home() {
                             <img src={infoIcon} alt="infoIcon"/>
                             <span>More Info</span>
                         </button>
-                        
                     </div>
                 </div>
                 <div className="replayAge">
@@ -33,6 +33,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <Cards/>
         </div>
     )
 }

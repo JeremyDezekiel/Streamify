@@ -18,13 +18,13 @@
 
 .titleImg {
     width: 90%;
-    max-width: 700px;
+    max-width: 700px; /*420*/
     margin-bottom: 30px;
 }
 
 .heroTitle p {
     max-width: 700px;
-    font-size: 25px;
+    font-size: 25px; /*17*/
     margin-bottom: 20px;
     text-align: justify;
 }
@@ -32,13 +32,13 @@
 .heroBtn {
     display: flex;
     gap: 10px;
-    margin-bottom: 250px;
+    margin-bottom: 50px; /*250*/
 }
 
 .heroBtn .btn {
     border: 0;
     outline: 0;
-    padding: 8px 35px;
+    padding: 8px 35px; /*20*/
     display: inline-flex;
     align-items: center;
     gap: 10px;
