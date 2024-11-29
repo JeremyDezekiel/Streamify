@@ -7,6 +7,7 @@ import Cards from '../../components/Cards/Cards'
 
 function Hero() {
     return (
+        <>
         <div className="hero">
             <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABXHmi6uJcTXcB8nDD1fHqkT3_F98Ay_uTmhhK8vY0OeDOtoDEXQYJ2wJ_qgcoHnfDDULEHSjzdbKsEcuykDm87j4RsvE0DI9O5IR.webp?r=de5" alt="heroImg" className="heroImg" />
             <div className="heroTitle">
@@ -31,6 +32,15 @@ function Hero() {
                 <Cards/>
             </div>
         </div>
+        <div className="categoryCards">
+            <Cards/>
+            <Cards/>
+            <Cards/>
+            <Cards/>
+            <Cards/>
+            <Cards/>
+        </div>
+        </>
     )
 }
 
