@@ -14,11 +14,20 @@
 }
 
 .category .arrowCategory {
-    display: none;
+    overflow: hidden;
+    transition: max-width 1s ease, 
+                opacity 1s ease, 
+                transform 0.75s ease;
+    max-width: 0;
+    opacity: 0;
+    transform: translateX(-50%);
+    white-space: nowrap;
 }
 
 .category:hover .arrowCategory {
-    display: inline-block;
+    max-width: 300px;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .category .arrowCategory h3 {
