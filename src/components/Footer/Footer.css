@@ -34,11 +34,11 @@
     font-size: 14px;
 }
 
-.button {
+.buttonFooter {
     margin-bottom: 20px;
 }
 
-.button button {
+.buttonFooter button {
     width: 94px;
     height: 35px;
     color: gray;

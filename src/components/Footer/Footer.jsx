@@ -28,7 +28,7 @@ const Footer = () => {
                 <li>Corporate Information</li>
                 <li>Contact Us</li>
             </ul>
-            <div className="button">
+            <div className="buttonFooter">
                 <button>Service Code</button>
             </div>
             <span className="copyright">
