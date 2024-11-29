@@ -32,7 +32,7 @@
 .heroBtn {
     display: flex;
     gap: 10px;
-    margin-bottom: 50px; /*250*/
+    margin-bottom: 50px;
 }
 
 .heroBtn .btn {
@@ -42,7 +42,6 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    /* font-size: 15px; */
     font-weight: 600;
     background: white;
     border-radius: 4px;
@@ -73,6 +72,7 @@
 .button {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 
 .replayAge {

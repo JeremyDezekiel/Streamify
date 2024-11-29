@@ -58,13 +58,14 @@
     right: 0;
     width: 400px;
     height: 100px;
-    background: #191919;
+    background: #191919e0;
     margin-top: 25px;
     padding: 18px 22px;
     border-radius: 2px;
     z-index: 1;
     display: none;
     text-align: center;
+    border-top: 5px solid white;
 }
 
 .navbar .dropdown p {
@@ -93,7 +94,7 @@
     top: 100%;
     right: 0;
     width: max-content;
-    background: #191919;
+    background: #191919e0;
     padding: 18px 22px;
     border-radius: 2px;
     z-index: 1;
