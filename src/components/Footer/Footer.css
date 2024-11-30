@@ -47,6 +47,6 @@
     cursor: pointer;
 }
 
-.button button:hover {
+.buttonFooter button:hover {
     color: white;
 }

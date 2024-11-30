@@ -1,6 +1,7 @@
 .cards {
     margin-top: 50px;
     margin-bottom: 30px;
+    font-size: 20px;
 }
 
 .cards .category h2 {
@@ -11,6 +12,7 @@
     display: inline-flex;
     gap: 20px;
     cursor: pointer;
+    align-items: center;
 }
 
 .category .arrowCategory {
@@ -22,6 +24,7 @@
     opacity: 0;
     transform: translateX(-50%);
     white-space: nowrap;
+    margin-bottom: 8px;
 }
 
 .category:hover .arrowCategory {
@@ -58,5 +61,5 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
-    display: none;
+    /* display: none; */
 }

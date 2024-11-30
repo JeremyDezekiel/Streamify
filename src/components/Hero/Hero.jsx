@@ -3,9 +3,12 @@ import './Hero.css'
 import playIcon from '../../assets/playIcon.png'
 import infoIcon from '../../assets/infoIcon.png'
 import replayIcon from '../../assets/replayIcon.png'
-import Cards from '../../components/Cards/Cards'
+import CardNowPlaying from '../CardNowPlaying/CardNowPlaying'
+import CardPopular from '../CardPopular/CardPopular'
+import CardTopRated from '../CardTopRated/CardTopRated'
+import CardUpcoming from '../CardUpcoming/CardUpcoming'
 
-function Hero() {
+function Hero(props) {
     return (
         <>
         <div className="hero">
@@ -29,16 +32,20 @@ function Hero() {
                         <span>16 +</span>
                     </div>
                 </div>
-                <Cards/>
+                
             </div>
         </div>
         <div className="categoryCards">
+            <CardNowPlaying playing={props.playing}/>
+            <CardTopRated topRated={props.topRated}/>
+            <CardPopular popular={props.popular}/>
+            <CardUpcoming upcoming={props.upcoming}/>
+            {/* <Cards/>
             <Cards/>
             <Cards/>
             <Cards/>
             <Cards/>
-            <Cards/>
-            <Cards/>
+            <Cards/> */}
         </div>
         </>
     )

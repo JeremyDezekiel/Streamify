@@ -1,22 +1,29 @@
 import React from "react"
-import './Cards.css'
+import './CardNowPlaying.css'
 
-function Cards () {
+function CardNowPlaying (props) {
     return (
         <div className="cards">
             <div className="category">
-                <h2>Gritty Western TV Shows</h2>
+                <h2>Playing Now</h2>
                 <div className="arrowCategory">
                     {/* <img src="" alt="" /> */}
                     <h3>Explore All</h3>
                 </div>
             </div>
             <div className="cardsList">
-                <div className="card">
-                    <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABX-9VhGKS26ySLlfcZo9ZcQ_qsUL1272qfBeT_0oKuSNAJOV7I74EUfULgYYqAkAlLILCUXEDjSTwP4usByzA_663SSaIFQrEVbCNTi900JkA4wZHTv3AUyl3KamwLnKqRIiQ-tfWelzM9auxi2yCcR9KzeEhCs-Gv9K1JoVB_3-qR8PnXRQlt1AOKsLUIWiL2_MkEAmo6NaHTibUwBcYR6ymYLdvkA5RAt6hSiAtQF9p-PgTLHGo5x3rK8GzKLW4NioKG9Hg8dSgAa_4lqq0IGsDN5Md5zrVK7MQj1NpTXBnR8uUoD08L3dUuLOJuiVg2D7F8gW3lkrKU-7VEykNlmarxJk788SWLelnFdjLpH9HQ.jpg?r=9bd" alt=""/>
-                    <p>Arcane</p>  
-                </div>
-                <div className="card">
+                {
+                    props.playing.results?.map(movie => {
+                        return (
+                            <div key={movie.id} className="card">
+                                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt=""/>
+                                <p>{movie.title}</p>  
+                            </div>
+                        )
+                    })
+                }
+                
+                {/* <div className="card">
                     <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABZ_wyuaKDX2rC8U6CONyA1ZeHvlF8tcl3bTw7rcp4dnY9ziAEwIy_Gb6-cUO7khOgUB9sQoOr5YZcDqZ7JL0UZD2ImpFysUikCo.webp?r=01d" alt=""/>
                     <p>Breaking Bad</p>  
                 </div>
@@ -59,10 +66,10 @@ function Cards () {
                 <div className="card">
                     <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABRQNhKRLRvgQr2fV0SR3hERQfS83s2WF7EugIARQsS8JQa9egszI-f6O_8y2Z2l0gF47-hr4tc3u65OaJPGxyXoNW03qjUYcDZA0wzfiixuXz1lFZQVTAc2sYwcYO7avmqzt.jpg?r=5a4" alt=""/>
                     <p>The Last Kingdom</p>  
-                </div>
+                </div> */}
             </div>
         </div>
     )
 }
 
-export default Cards
+export default CardNowPlaying
