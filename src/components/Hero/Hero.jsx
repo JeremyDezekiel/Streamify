@@ -33,9 +33,9 @@ function Hero() {
             </div>
         </div>
         <div className="categoryCards">
-            <Cards title={'Now Playing'}/>
-            <Cards title={'Upcoming'}/>
-            <Cards title={'Top Rated'}/>
+            <Cards title={'Now Playing'} category={"now_playing"}/>
+            <Cards title={'Upcoming'} category={"upcoming"}/>
+            <Cards title={'Top Rated'} category={"top_rated"}/>
         </div>
         </>
     )

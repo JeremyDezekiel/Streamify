@@ -13,7 +13,7 @@ function Cards ({title, category}) {
     const fetchMovies = async () => {
         try {
             setIsLoading(true)
-            const { data } = await tmdb.get(`/movie/${category?category:"now_playing"}`)
+            const { data } = await tmdb.get(`/movie/${category?category:"popular"}`)
             setMovies(data)
         } catch (error) {
             console.error(error)
@@ -28,13 +28,17 @@ function Cards ({title, category}) {
 
     return (
         <div className="cards">
-            <h2>{title?title:"Popular"}</h2>
+            <h2>{title ? title : "Popular"}</h2>
             <div className="cardsList">
-                <div className="card" movies={movies}>
-                    <img src="https://images.cdn.prd.api.discomax.com/2024/07/08/49e1360c-e4a1-3362-ac08-f5b51da2afbf.jpeg?w=250&f=webp" alt=""/>
-                    <p>{movies.title}</p>
-                    <span>Apr 17, 2011</span>
-                </div>
+                {movies.results?.map(movies => {
+                    return (
+                        <div key={movies.id} className="card">
+                            <img src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} alt="" />
+                            <p>{movies.title}</p>
+                            <span>{movies.release_date}</span>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
