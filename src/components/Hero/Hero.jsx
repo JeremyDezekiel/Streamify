@@ -33,10 +33,9 @@ function Hero() {
             </div>
         </div>
         <div className="categoryCards">
-            {/* <Cards/>
-            <Cards/>
-            <Cards/>
-            <Cards/> */}
+            <Cards title={'Now Playing'}/>
+            <Cards title={'Upcoming'}/>
+            <Cards title={'Top Rated'}/>
         </div>
         </>
     )
