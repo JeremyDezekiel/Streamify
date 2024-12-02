@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import './Navbar.css'
 import searchIcon from '../../assets/searchIcon.svg'
 import notifIcon from '../../assets/notifIcon.svg'
@@ -29,7 +29,7 @@ function Navbar() {
                 </div>
                 <div className="navProfile">
                     <img src={profile} alt="profileIcon" className="profileIcon" />
-                    <img src={dropdown} alt="dropdown" />
+                    <img src={dropdown} alt="dropdown" className="test"/>
                     <div className="dropdown">
                         <p>Edit Profiles</p><br />
                         <p>Settings</p><br />

@@ -101,6 +101,10 @@
     display: none;
 }
 
+.navProfile .test {
+    transition: transform 500ms;
+}
+
 .navbar .dropdown p {
     font-size: 25px;
     cursor: pointer;
@@ -108,6 +112,10 @@
 
 .navProfile:hover .dropdown {
     display: block;
+}
+
+.navProfile:hover .test {
+    transform: rotate(180deg);
 }
 
 .navbarMiddle ul li:hover{

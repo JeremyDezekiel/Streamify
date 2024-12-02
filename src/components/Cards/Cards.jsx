@@ -1,33 +1,47 @@
 import React from "react"
-import './CardNowPlaying.css'
+import './Cards.css'
+import ratingIcon from '../../assets/ratingIcon.png'
+import playIcon from '../../assets/playIcon.png'
 
-function CardNowPlaying (props) {
+function Cards ({title, category}) {
     return (
         <div className="cards">
             <div className="category">
-                <h2>Playing Now</h2>
+                <h2>{title?title:"Playing Now"}</h2>
                 <div className="arrowCategory">
                     {/* <img src="" alt="" /> */}
                     <h3>Explore All</h3>
                 </div>
             </div>
             <div className="cardsList">
-                {
-                    props.playing.results?.map(movie => {
-                        return (
-                            <div key={movie.id} className="card">
-                                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt=""/>
-                                <p>{movie.title}</p>  
-                            </div>
-                        )
-                    })
-                }
                 
-                {/* <div className="card">
-                    <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABZ_wyuaKDX2rC8U6CONyA1ZeHvlF8tcl3bTw7rcp4dnY9ziAEwIy_Gb6-cUO7khOgUB9sQoOr5YZcDqZ7JL0UZD2ImpFysUikCo.webp?r=01d" alt=""/>
-                    <p>Breaking Bad</p>  
-                </div>
+                {/* <div className="hoverCards">
+                    <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABZ_wyuaKDX2rC8U6CONyA1ZeHvlF8tcl3bTw7rcp4dnY9ziAEwIy_Gb6-cUO7khOgUB9sQoOr5YZcDqZ7JL0UZD2ImpFysUikCo.webp?r=01d" alt="" />
+                    <p>Breaking Bad</p>
+                    <div className="rating">
+                        <span className="ratingLeft">
+                            <img src={ratingIcon} alt="" />
+                            <span>9.0</span>
+                        </span>
+                        <span className="ratingRight">18 +</span>
+                    </div>
+                    <div className="genre">
+                        <span>Violent</span>
+                        <span>Gritty</span>
+                        <span>Thriller</span>
+                    </div>
+                    <div className="trailer">
+                        <button>
+                            <img src={playIcon} alt="" />
+                            <span>Trailer</span>
+                        </button>
+                    </div>
+                </div> */}
                 <div className="card">
+                    <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABZ_wyuaKDX2rC8U6CONyA1ZeHvlF8tcl3bTw7rcp4dnY9ziAEwIy_Gb6-cUO7khOgUB9sQoOr5YZcDqZ7JL0UZD2ImpFysUikCo.webp?r=01d" alt=""/>
+                    <p>Breaking Bad</p>
+                </div>
+                {/* <div className="card">
                     <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABb3z_J3XGQztP0TN8korj7rJOSUzLg_TBoblj_5cVaN6MGTWpXfb2JVYzk3ssu1JpONDShhsk08mYz_iK9jFywWFucPHOlMB45DyN4uTb50ltZQHUE_RPhaSi5h0U0jP84_P.jpg?r=872" alt=""/>
                     <p>Better Call Saul</p>  
                 </div>
@@ -72,4 +86,4 @@ function CardNowPlaying (props) {
     )
 }
 
-export default CardNowPlaying
+export default Cards
