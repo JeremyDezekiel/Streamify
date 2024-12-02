@@ -4,8 +4,10 @@ import searchIcon from '../../assets/searchIcon.svg'
 import notifIcon from '../../assets/notifIcon.svg'
 import profile from '../../assets/profile.png'
 import dropdown from '../../assets/dropdown.svg'
+import { Link } from "react-router-dom"
 
 function Navbar() {
+    
     return (
         <div className="navbar">
             <div className="navbarLeft">
@@ -13,10 +15,10 @@ function Navbar() {
             </div>
             <div className="navbarMiddle">
                 <ul>
-                    <li>Home</li>
-                    <li>Series</li>
-                    <li>Movie</li>
-                    <li>New & Popular</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/series">Series</Link></li>
+                    <li><Link to="/movie">Movie</Link></li>
+                    <li><Link to="/newandpopular">New & Popular</Link></li>
                 </ul>
             </div>
             <div className="navbarRight">
