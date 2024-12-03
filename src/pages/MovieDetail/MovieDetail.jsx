@@ -48,33 +48,31 @@ function MovieDetail() {
         <>
         <div className='heroMovieDetail'>
             <div className='poster'>
-                <img src='https://media.themoviedb.org/t/p/w300_and_h450_bestv2/m0SbwFNCa9epW1X60deLqTHiP7x.jpg' alt=''/>
+                <img src={`https://image.tmdb.org/t/p/w500/${details?.belongs_to_collection?.poster_path}`} alt={details.name} />
             </div>
             <div className='contentDetail'>
                 <div className='titleDetail'>
-                    <h2>Moana 2</h2>
+                    <h2>{details.original_title}</h2>
                     <div className='facts'>
-                        <span className='certification'>SU</span>
-                        <span className='release'>11/27/2024</span>
+                        <span className='release'>{details.release_date}</span>
                         <span className='factsDot'>•</span>
-                        <span className='genre'>
-                            <span>Animasi</span>
-                            ,&nbsp;
-                            <span> Adventure</span>
-                            ,&nbsp;
-                            <span> Family</span>
-                            ,&nbsp;
-                            <span> Comedy</span>
-                        </span>
+                        {details.genres?.map(details => {
+                            return (
+                                <span key={details.id} className='genre'>
+                                    <span>{details.name}</span>
+                                    ,&nbsp;
+                                </span>
+                            )
+                        })}
                         <span className='factsDot'>•</span>
-                        <span className='runtime'>1h 40m</span>
+                        <span className='runtime'>{details.runtime}</span>
                     </div>
                 </div>
                 <div>
                     <ul className='action'>
                         <li className='rating'>
                             <img src={ratingIcon} alt=''/>
-                            <span>7.0</span>
+                            <span>{details.vote_average}</span>
                         </li>
                         <li className='favorite'>
                             <a>
@@ -88,34 +86,18 @@ function MovieDetail() {
                     </ul>
                 </div>
                 <div className='movieInfo'>
-                    <h3 className='tagline'>The ocean is calling them back.</h3>
+                    <h3 className='tagline'>{details.tagline}</h3>
                     <h3>OverView</h3>
-                    <p>After receiving an unexpected call from her wayfinding ancestors, Moana journeys alongside Maui and a new crew to the far seas of Oceania and into dangerous, long-lost waters for an adventure unlike anything she's ever faced.</p>
-                    <ul className='creditProfile'>
-                        <li className='proflie'>
-                        <p>Dana Ledoux Miller</p>
-                        <p className='jobs'>Director, Writer</p>
-                        </li>
-                        <li className='proflie'>
-                        <p>Ron Clements</p>
-                        <p className='jobs'>Characters</p>
-                        </li>
-                        <li className='proflie'>
-                        <p>John Musker</p>
-                        <p className='jobs'>Characters</p>
-                        </li>
-                        <li className='proflie'>
-                        <p>David G. Derrick Jr.</p>
-                        <p className='jobs'>Director</p>
-                        </li>
-                        <li className='proflie'>
-                        <p>Jason Hand</p>
-                        <p className='jobs'>Director</p>
-                        </li>
-                        <li className='proflie'>
-                        <p>Jared Bush</p>
-                        <p className='jobs'>Writer</p>
-                        </li>
+                    <p>{details.overview}</p>
+                        <ul className='creditProfile'>
+                            {credits.crew?.slice(0, 6).map(credits => {
+                                return (
+                                    <li className='proflie'>
+                                        <p>{credits.name}</p>
+                                        <p className='jobs'>{credits.department}</p>
+                                    </li>
+                                )
+                            })}
                     </ul>
                 </div>
             </div>
@@ -123,13 +105,23 @@ function MovieDetail() {
         <div className="cardsActor">
             <div className="cardsListActor">
             {credits.cast?.map(credits => {
+                if (credits.profile_path) {
                     return (
                         <div key={credits.id} className="card">
-                            <img src={`https://image.tmdb.org/t/p/w500/${credits.profile_path}`} alt="" />
+                            <img src={`https://image.tmdb.org/t/p/w500/${credits.profile_path}`} alt={credits.name} />
                             <p>{credits.name}</p>
                             <span>{credits.character}</span>
                         </div>
                     )
+                } else {
+                    return (
+                        <div key={credits.id} className="card">
+                            <img src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" alt={credits.name} />
+                            <p>{credits.name}</p>
+                            <span>{credits.character}</span>
+                        </div>
+                    )
+                }
                 })}
             </div>
         </div>

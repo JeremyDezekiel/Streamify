@@ -9,6 +9,7 @@
 
 .poster img{
     border-radius: 10px;
+    width: 300px;
 }
 
 .titleDetail h2{
@@ -18,13 +19,6 @@
 .facts {
     font-size: 16px;
     margin-bottom: 24px;
-}
-
-.facts .certification {
-    border: 1px solid white;
-    border-radius: 2px;
-    padding: 3px;
-    margin-right: 7px;
 }
 
 .facts .release {
@@ -140,7 +134,7 @@
 }
 
 .cardsListActor .card p {
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 5px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
