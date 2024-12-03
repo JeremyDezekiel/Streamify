@@ -4,6 +4,7 @@ import Series from "./pages/Series/Series"
 import Movie from "./pages/Movie/Movie"
 import NewandPopular from "./pages/NewandPopular/NewandPopular"
 import MainLayout from "./Layout/MainLayout"
+import MovieDetail from "./pages/MovieDetail/MovieDetail"
 
 const router = createBrowserRouter ([
     {
@@ -25,7 +26,12 @@ const router = createBrowserRouter ([
             {
                 path: "newandpopular",
                 element: <NewandPopular/>
-            }
+            },
+            {   
+                path: "moviedetail/:movieId",
+                element: <MovieDetail/>
+            }   
+
         ]
     }
 ])
