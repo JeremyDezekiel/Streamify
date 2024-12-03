@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from "react"
 import './MovieDetail.css'
 import tmdb from '../../utils/axios'
 import { useParams } from 'react-router-dom'
@@ -7,27 +7,43 @@ import iconPlayWhite from '../../assets/iconPlayWhite.png'
 import favoriteIcon from '../../assets/favoriteIcon.png'
 
 function MovieDetail() {
-    // const [isLoading, setIsLoading] = useState(true)
-    // const [detail, setdetail] = useState([])
-    // const [error, setError] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+    const [credits, setCredits] = useState([])
+    const [details, setDetails] = useState([])
+    const [error, setError] = useState(null)
 
     const params = useParams()
 
-    // const fetchDetail = async () => {
-    //     try {
-    //         setIsLoading(true)
-    //         const { data } = await tmdb.get(`/movie/${movieId}/credits`)
-    //         setdetail(data)
-    //     } catch (error) {
-    //         console.error(error)
-    //     } finally {
-    //         setIsLoading(false)
-    //     }
-    // }
+    const fetchDetails = async () => {
+        const idMovie = params.movieId
+        try {
+            setIsLoading(true)
+            const { data } = await tmdb.get(`/movie/${idMovie}`)
+            setDetails(data)
+        } catch (error) {
+            console.error(error)
+        } finally {
+            setIsLoading(false)
+        }
+    }
 
-    // useEffect(() => {
-    //     fetchDetail()
-    // }, [])
+    const fetchCredits = async () => {
+        const idMovie = params.movieId
+        try {
+            setIsLoading(true)
+            const { data } = await tmdb.get(`/movie/${idMovie}/credits`)
+            setCredits(data)
+        } catch (error) {
+            console.error(error)
+        } finally {
+            setIsLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        fetchCredits()
+        fetchDetails()
+    }, [])
     return (
         <>
         <div className='heroMovieDetail'>
@@ -106,44 +122,19 @@ function MovieDetail() {
         </div>
         <div className="cardsActor">
             <div className="cardsListActor">
-                <div className="card">
-                    <img src="https://media.themoviedb.org/t/p/w138_and_h175_face/vEroqcnM2g6yY7qXDAie7hx2Cyp.jpg" alt=""/>
-                    <p>Auli'i Cravalho</p>
-                    <span>Moana (voice)</span>
-                </div>
-                <div className="card">
-                    <img src="https://media.themoviedb.org/t/p/w138_and_h175_face/vEroqcnM2g6yY7qXDAie7hx2Cyp.jpg" alt=""/>
-                    <p>Auli'i Cravalho</p>
-                    <span>Moana (voice)</span>
-                </div>
-                <div className="card">
-                    <img src="https://media.themoviedb.org/t/p/w138_and_h175_face/vEroqcnM2g6yY7qXDAie7hx2Cyp.jpg" alt=""/>
-                    <p>Auli'i Cravalho</p>
-                    <span>Moana (voice)</span>
-                </div>
-                <div className="card">
-                    <img src="https://media.themoviedb.org/t/p/w138_and_h175_face/vEroqcnM2g6yY7qXDAie7hx2Cyp.jpg" alt=""/>
-                    <p>Auli'i Cravalho</p>
-                    <span>Moana (voice)</span>
-                </div>
-                <div className="card">
-                    <img src="https://media.themoviedb.org/t/p/w138_and_h175_face/vEroqcnM2g6yY7qXDAie7hx2Cyp.jpg" alt=""/>
-                    <p>Auli'i Cravalho</p>
-                    <span>Moana (voice)</span>
-                </div>
-                <div className="card">
-                    <img src="https://media.themoviedb.org/t/p/w138_and_h175_face/vEroqcnM2g6yY7qXDAie7hx2Cyp.jpg" alt=""/>
-                    <p>Auli'i Cravalho</p>
-                    <span>Moana (voice)</span>
-                </div>
-                <div className="card">
-                    <img src="https://media.themoviedb.org/t/p/w138_and_h175_face/vEroqcnM2g6yY7qXDAie7hx2Cyp.jpg" alt=""/>
-                    <p>Auli'i Cravalho</p>
-                    <span>Moana (voice)</span>
-                </div>
+            {credits.cast?.map(credits => {
+                    return (
+                        <div key={credits.id} className="card">
+                            <img src={`https://image.tmdb.org/t/p/w500/${credits.profile_path}`} alt="" />
+                            <p>{credits.name}</p>
+                            <span>{credits.character}</span>
+                        </div>
+                    )
+                })}
             </div>
         </div>
         <div>MovieDetail: {params.movieId}</div>
+        <p>Test</p>
         </>
     )
 }
