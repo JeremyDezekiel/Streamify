@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import './MovieDetail.css'
 import tmdb from '../../utils/axios'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ratingIcon from '../../assets/ratingIcon.png'
 import iconPlayWhite from '../../assets/iconPlayWhite.png'
 import favoriteIcon from '../../assets/favoriteIcon.png'
@@ -13,9 +13,9 @@ function MovieDetail() {
     const [error, setError] = useState(null)
 
     const params = useParams()
+    const idMovie = params.movieId
 
     const fetchDetails = async () => {
-        const idMovie = params.movieId
         try {
             setIsLoading(true)
             const { data } = await tmdb.get(`/movie/${idMovie}`)
@@ -28,7 +28,6 @@ function MovieDetail() {
     }
 
     const fetchCredits = async () => {
-        const idMovie = params.movieId
         try {
             setIsLoading(true)
             const { data } = await tmdb.get(`/movie/${idMovie}/credits`)
@@ -44,6 +43,11 @@ function MovieDetail() {
         fetchCredits()
         fetchDetails()
     }, [])
+
+    const navigate = useNavigate()
+    const goToTrailer = (idMovie) => {
+        navigate(`/trailer/${idMovie}`)
+    }
     return (
         <>
         <div className='heroMovieDetail'>
@@ -79,7 +83,7 @@ function MovieDetail() {
                                 <img src={favoriteIcon} alt=''/>
                             </a>
                         </li>
-                        <li className='trailer'>
+                        <li className='trailer' onClick={() => goToTrailer(idMovie)}>
                             <img src={iconPlayWhite} alt=''/>
                             <span>Play Trailer</span>
                         </li>
@@ -92,7 +96,7 @@ function MovieDetail() {
                         <ul className='creditProfile'>
                             {credits.crew?.slice(0, 6).map(credits => {
                                 return (
-                                    <li className='proflie'>
+                                    <li key={credits.id} className='proflie'>
                                         <p>{credits.name}</p>
                                         <p className='jobs'>{credits.department}</p>
                                     </li>
