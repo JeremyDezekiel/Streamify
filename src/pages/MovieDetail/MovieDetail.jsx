@@ -52,7 +52,7 @@ function MovieDetail() {
         <>
         <div className='heroMovieDetail'>
             <div className='poster'>
-                <img src={`https://image.tmdb.org/t/p/w500/${details?.belongs_to_collection?.poster_path}`} alt={details.name} />
+                <img src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt={details.name} />
             </div>
             <div className='contentDetail'>
                 <div className='titleDetail'>
@@ -130,7 +130,6 @@ function MovieDetail() {
             </div>
         </div>
         <div>MovieDetail: {params.movieId}</div>
-        <p>Test</p>
         </>
     )
 }

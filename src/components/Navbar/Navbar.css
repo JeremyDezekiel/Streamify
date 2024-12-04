@@ -35,6 +35,11 @@
     cursor: pointer;
 }
 
+.navbar .navbarMiddle .linkDecoration {
+    text-decoration: none;
+    color: white;
+}
+
 .navbarRight {
     display: flex;
     align-items: center;

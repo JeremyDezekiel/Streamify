@@ -14,7 +14,7 @@ function Search() {
     const fetchTrending = async () => {
         try {
             setIsLoading(true)
-            const { data } = await tmdb.get(`/trending/all/day`)
+            const { data } = await tmdb.get(`/trending/movie/day`)
             setTrending(data)
         } catch (error) {
             console.log(error)

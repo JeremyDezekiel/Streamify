@@ -19,10 +19,10 @@ function Navbar() {
             </div>
             <div className="navbarMiddle">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/series">Series</Link></li>
-                    <li><Link to="/movie">Movie</Link></li>
-                    <li><Link to="/newandpopular">New & Popular</Link></li>
+                    <li><Link to="/" className="linkDecoration">Home</Link></li>
+                    <li><Link to="/series" className="linkDecoration">Series</Link></li>
+                    <li><Link to="/movie" className="linkDecoration">Movie</Link></li>
+                    <li><Link to="/newandpopular" className="linkDecoration">New & Popular</Link></li>
                 </ul>
             </div>
             <div className="navbarRight">

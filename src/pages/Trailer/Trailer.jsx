@@ -35,16 +35,26 @@ function Trailer() {
 
     return (
         <>
-        <div className='trailerPage'>
-            <img src={backArrow} alt='' onClick={() => goToMovieDetail(idMovie)}/>
-            {trailer.results?.map(trailer => {
-                if (trailer.type = "Trailer")
-                return (
-                    <iframe key={trailer.id} width='90%' height='90%' src={`https://www.youtube.com/embed/${trailer.key}`} title='trailer' frameBorder='0' allowFullScreen></iframe>
-                )
-            })}
-        </div>
-        <div>{idMovie}</div>
+            <div className="trailerPage">
+                <img
+                    src={backArrow}
+                    alt=""
+                    onClick={() => goToMovieDetail(idMovie)}
+                />
+                {trailer.results?.find(trailer => trailer.type === "Trailer") ? (
+                    <iframe
+                        width="90%"
+                        height="90%"
+                        src={`https://www.youtube.com/embed/${trailer.results.find(trailer => trailer.type === "Trailer").key
+                            }`}
+                        title="trailer"
+                        frameBorder="0"
+                        allowFullScreen
+                    ></iframe>
+                ) : (
+                    <p>Trailer tidak tersedia</p>
+                )}
+            </div>
         </>
     )
 }
