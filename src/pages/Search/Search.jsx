@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './Search.css'
-import Cards from '../../components/Cards/Cards'
+// import './Search.css'
 import tmdb from '../../utils/axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -52,31 +51,31 @@ function Search() {
         navigate(`/moviedetail/${movieId}`)
     }
     return (
-        <div className='searchContain'>
-            <div className='search'>
-                <input type='text' placeholder='Find movies, shows, and more' onChange={(e) => setSearch(e.target.value)}/>
+        <div className='pt-24 px-14'>
+            <div className=''>
+                <input className='w-full h-12 rounded-md px-1 text-xl bg-gray-600' type='text' placeholder='Find movies, shows, and more' onChange={(e) => setSearch(e.target.value)}/>
             </div>
             <div>
-                <div className='contentSearch'>
-                    <div className='cardsSearch'>
-                        <div className='cardsShows'>
+                <div className='mt-14'>
+                    <div className=''>
+                        <div className='grid grid-cols-6 gap-3'>
                             {searchResults.results?.map(searchResults => {
                                 return (
-                                    <div key={searchResults.id} className='showCards'>
-                                        <img src={`https://image.tmdb.org/t/p/w500/${searchResults.poster_path}`} alt='' onClick={() => goToMovieDetail(searchResults.id)} />
+                                    <div key={searchResults.id} className=''>
+                                        <img className='w-72 rounded border border-transparent cursor-pointer hover:border hover:border-white h-full' src={`https://image.tmdb.org/t/p/w500/${searchResults.poster_path}`} alt={searchResults.name} onClick={() => goToMovieDetail(searchResults.id)} />
                                     </div>
                                 )
                             })}
                         </div>
                     </div>
                 </div>
-                <div className='searchDefault'>
-                    <h2>Trending</h2>
-                    <div className='cardsShows'>
+                <div className=''>
+                    <h2 className='mb-2 text-3xl'>Trending</h2>
+                    <div className='grid grid-cols-6 gap-3'>
                         {trending.results?.map(trending => {
                             return (
-                                <div key={trending.id} className='showCards'>
-                                    <img src={`https://image.tmdb.org/t/p/w500/${trending.poster_path}`} alt='' onClick={() => goToMovieDetail(trending.id)} />
+                                <div key={trending.id} className=''>
+                                    <img className='w-72 rounded border border-transparent cursor-pointer hover:border hover:border-white h-full' src={`https://image.tmdb.org/t/p/w500/${trending.poster_path}`} alt={trending.name} onClick={() => goToMovieDetail(trending.id)} />
                                 </div>
                             )
                         })}

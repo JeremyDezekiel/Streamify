@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import './MovieDetail.css'
+// import './MovieDetail.css'
 import tmdb from '../../utils/axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import ratingIcon from '../../assets/ratingIcon.png'
@@ -49,51 +49,51 @@ function MovieDetail() {
         navigate(`/trailer/${idMovie}`)
     }
     return (
-        <>
-        <div className='heroMovieDetail'>
-            <div className='poster'>
-                <img src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt={details.name} />
-            </div>
-            <div className='contentDetail'>
-                <div className='titleDetail'>
-                    <h2>{details.original_title}</h2>
-                    <div className='facts'>
-                        <span className='release'>{details.release_date}</span>
-                        <span className='factsDot'>•</span>
-                        {details.genres?.map(details => {
-                            return (
-                                <span key={details.id} className='genre'>
-                                    <span>{details.name}</span>
-                                    ,&nbsp;
-                                </span>
-                            )
-                        })}
-                        <span className='factsDot'>•</span>
-                        <span className='runtime'>{details.runtime}</span>
+        <div className="pt-20">
+            <div className='flex justify-center items-center gap-12 px-14'>
+                <div className=''>
+                    <img className="rounded-xl w-80" src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt={details.name} />
+                </div>
+                <div className='contentDetail'>
+                    <div className=''>
+                        <h2 className="text-4xl">{details.original_title}</h2>
+                        <div className='text-base mb-6'>
+                            <span className='mr-2'>{details.release_date}</span>
+                            <span className='mr-2'>•</span>
+                            {details.genres?.map(details => {
+                                return (
+                                    <span key={details.id} className='mr-2'>
+                                        <span>{details.name}</span>
+                                        ,&nbsp;
+                                    </span>
+                                )
+                            })}
+                            <span className='mr-2'>•</span>
+                            <span>{details.runtime}</span>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <ul className='action'>
-                        <li className='rating'>
-                            <img src={ratingIcon} alt=''/>
-                            <span>{details.vote_average}</span>
-                        </li>
-                        <li className='favorite'>
-                            <a>
-                                <img src={favoriteIcon} alt=''/>
-                            </a>
-                        </li>
-                        <li className='trailer' onClick={() => goToTrailer(idMovie)}>
-                            <img src={iconPlayWhite} alt=''/>
-                            <span>Play Trailer</span>
-                        </li>
-                    </ul>
-                </div>
-                <div className='movieInfo'>
-                    <h3 className='tagline'>{details.tagline}</h3>
-                    <h3>OverView</h3>
-                    <p>{details.overview}</p>
-                        <ul className='creditProfile'>
+                    <div>
+                        <ul className='flex list-none gap-12 items-center mb-10'>
+                            <li className='rating flex items-center gap-1 font-semibold text-xl'>
+                                <img className="w-5" src={ratingIcon} alt='' />
+                                <span>{parseFloat(details.vote_average).toFixed(1)}</span>
+                            </li>
+                            <li className=''>
+                                <a>
+                                    <img className="w-5 cursor-pointer hover:bg-red-700" src={favoriteIcon} alt='' />
+                                </a>
+                            </li>
+                            <li className='py-2 px-5 flex items-center gap-3 font-semibold bg-gray-600 rounded cursor-pointer hover:bg-gray-500' onClick={() => goToTrailer(idMovie)}>
+                                <img className="w-5" src={iconPlayWhite} alt='' />
+                                <span>Play Trailer</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className=''>
+                        <h3 className='text-lg font-normal italic opacity-70'>{details.tagline}</h3>
+                        <h3 className="text-xl font-semibold my-2">OverView</h3>
+                        <p className="text-base leading-6 font-normal">{details.overview}</p>
+                        <ul className='mt-5 grid grid-cols-3 gap-8 list-none'>
                             {credits.crew?.slice(0, 6).map(credits => {
                                 return (
                                     <li key={credits.id} className='proflie'>
@@ -102,35 +102,35 @@ function MovieDetail() {
                                     </li>
                                 )
                             })}
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div className="cardsActor">
-            <div className="cardsListActor">
-            {credits.cast?.map(credits => {
-                if (credits.profile_path) {
-                    return (
-                        <div key={credits.id} className="card">
-                            <img src={`https://image.tmdb.org/t/p/w500/${credits.profile_path}`} alt={credits.name} />
-                            <p>{credits.name}</p>
-                            <span>{credits.character}</span>
-                        </div>
-                    )
-                } else {
-                    return (
-                        <div key={credits.id} className="card">
-                            <img src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" alt={credits.name} />
-                            <p>{credits.name}</p>
-                            <span>{credits.character}</span>
-                        </div>
-                    )
-                }
-                })}
+            <div className="flex items-center px-14 text-xl mt-12">
+                <div className="flex gap-5 overflow-x-scroll">
+                    {credits.cast?.map(credits => {
+                        if (credits.profile_path) {
+                            return (
+                                <div key={credits.id} className="">
+                                    <img className="min-w-36 rounded" src={`https://image.tmdb.org/t/p/w500/${credits.profile_path}`} alt={credits.name} />
+                                    <p className="text-xl mt-1 mb-3">{credits.name}</p>
+                                    <span>{credits.character}</span>
+                                </div>
+                            )
+                        } else {
+                            return (
+                                <div key={credits.id} className="card">
+                                    <img src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" alt={credits.name} />
+                                    <p>{credits.name}</p>
+                                    <span>{credits.character}</span>
+                                </div>
+                            )
+                        }
+                    })}
+                </div>
             </div>
+            <div>MovieDetail: {params.movieId}</div>
         </div>
-        <div>MovieDetail: {params.movieId}</div>
-        </>
     )
 }
 

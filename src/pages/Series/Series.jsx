@@ -1,5 +1,5 @@
 import React from 'react'
-import './Series.css'
+// import './Series.css'
 import playIcon from '../../assets/playIcon.png'
 import infoIcon from '../../assets/infoIcon.png'
 import replayIcon from '../../assets/replayIcon.png'
@@ -7,37 +7,22 @@ import CardsSeries from '../../components/CardsSeries/CardsSeries'
 
 function Series() {
     return (
-        <>
-        <div className="hero">
-            <img src="https://image.tmdb.org/t/p/w500/tElnmtQ6yz1PjN1kePNl8yMSb59.jpg" className="heroImg" />
-            <div className="heroTitle">
-                <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABc4MOtQa52lcyRrGJ_qZSmTv9_P-Ybu96c6P3HHIPg8wm8e2FI-dmaJ4cQ1tL92EQlNEbZN0QrYiJ5pdJHmGcc2nuw3I63ej3GOG9PovudOjGkhSMB73ZLkf7E_0-3Znfo9gmhqx05xesi7NEEaD7JuA1dDbM3ryriXecVv0qWAuWvuVaM338g.webp?r=c3b" alt="heroTitle" className="titleImg" />
-                <p>Woo Do-hwan ("Bloodhounds") plays a drifter who goes with the flow — until startling news sparks a quest to find his biological father.</p>
-                <div className="button">
-                    <div className="heroBtn">
-                        <button className="btn">
-                            <img src={playIcon} alt="playIcon" />
-                            <span>Play</span>
-                        </button>
-                        <button className="btn infoBtn">
-                            <img src={infoIcon} alt="infoIcon" />
-                            <span>More Info</span>
-                        </button>
-                    </div>
-                    <div className="replayAge">
-                        <img src={replayIcon} alt="replayIcon" />
-                        <span>16 +</span>
-                    </div>
+        <div>
+            <div className="relative">
+                <img className="min-w-full" src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABcVZ02T8gjK92w0DHMEBRgWj1qzGoqVtI5Vj12Gv8kvjzYaSRHcZMmb-0YtzqQX2CT1bFdgsZllfC2gIawm5ovzKwUgjiFpPXwGW.webp?r=1af" alt="" />
+                <div className="absolute w-full px-14 bottom-0">
+                    <h1 className="text-8xl mb-5">Title Movie</h1>
+                    <p className="text-2xl mb-5">desc Movie</p>
+                    <button className="bg-gray-600 rounded py-2 px-9 font-bold">Go to Movie</button>
+                    <CardsSeries/>
                 </div>
             </div>
+            <div className="mx-14">
+                <CardsSeries title={'Now Playing'} category={"now_playing"} />
+                <CardsSeries title={'Upcoming'} category={"upcoming"} />
+                <CardsSeries stitle={'Top Rated'} category={"top_rated"} />
+            </div>
         </div>
-        <div className="categoryCards">
-            <CardsSeries/>
-            {/* <Cards title={'Now Playing'} category={"now_playing"}/>
-            <Cards title={'Upcoming'} category={"upcoming"}/>
-            <Cards title={'Top Rated'} category={"top_rated"}/> */}
-        </div>
-        </>
     )
 }
 

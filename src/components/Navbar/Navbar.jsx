@@ -13,38 +13,38 @@ function Navbar() {
     }
 
     return (
-        <div className="navbar">
-            <div className="navbarLeft">
-                <img src="" alt=""/>
+        <div className="navbar w-full py-5 px-[5%] flex justify-between fixed text-xl text-white z-[1] ">
+            <div className="flex items-center gap-12">
+                <img className="w-[90px]" src="" alt=""/>
             </div>
-            <div className="navbarMiddle">
-                <ul>
-                    <li><Link to="/" className="linkDecoration">Home</Link></li>
-                    <li><Link to="/series" className="linkDecoration">Series</Link></li>
-                    <li><Link to="/movie" className="linkDecoration">Movie</Link></li>
-                    <li><Link to="/newandpopular" className="linkDecoration">New & Popular</Link></li>
+            <div className="flex items-center">
+                <ul className="flex list-none gap-5">
+                    <li className="cursor-pointer"><Link to="/" className="no-underline text-white hover:text-[#e5e5e599]">Home</Link></li>
+                    <li className="cursor-pointer"><Link to="/series" className="no-underline text-white hover:text-[#e5e5e599]">Series</Link></li>
+                    <li className="cursor-pointer"><Link to="/movie" className="no-underline text-white hover:text-[#e5e5e599]">Movie</Link></li>
+                    <li className="cursor-pointer"><Link to="/newandpopular" className="no-underline text-white hover:text-[#e5e5e599]">New & Popular</Link></li>
                 </ul>
             </div>
-            <div className="navbarRight">
-                <img src={searchIcon} alt="SearchIcon" className="icon" onClick={() => goToSeacrh()}/>
-                <div className="navNotif">
-                    <img src={notifIcon} alt="notifIcon" className="icon" />
-                    <div className="dropdownNotif">
-                        <p>No recent notification</p>
+            <div className="flex items-center gap-5">
+                <img src={searchIcon} alt="SearchIcon" className="w-5 cursor-pointer" onClick={() => goToSeacrh()}/>
+                <div className="navNotif flex items-center relative">
+                    <img src={notifIcon} alt="notifIcon" className="w-5 cursor-pointer" />
+                    <div className="dropdownNotif absolute top-full right-0 w-[400px] h-[100px] bg-[#191919e0] mt-6 py-[18px] px-[22px] rounded-sm z-[1] hidden text-center border-t-4 border-white hover:block">
+                        <p className="text-2xl">No recent notification</p>
                     </div>
                 </div>
-                <div className="navProfile">
-                    <img src={profile} alt="profileIcon" className="profileIcon" />
-                    <img src={dropdown} alt="dropdown" className="test"/>
-                    <div className="dropdown">
-                        <p>Edit Profiles</p><br />
-                        <p>Settings</p><br />
-                        <p>Account</p><br />
-                        <p>Subscription</p><br />
-                        <p>Privacy & Legal</p><br />
-                        <p>Help</p><br /><hr />
+                <div className="navProfile flex items-center gap-[10px] cursor-pointer relative">
+                    <img src={profile} alt="profileIcon" className="rounded-[4px] w-9" />
+                    <img src={dropdown} alt="dropdown" className="arrow transition-transform duration-500"/>
+                    <div className="dropdown absolute top-full right-0 w-max bg-[#191919e0] py-[18px] px-[22px] rounded-sm z-[1] hidden hov">
+                        <p className="text-2xl cursor-pointer">Edit Profiles</p><br />
+                        <p className="text-2xl cursor-pointer">Settings</p><br />
+                        <p className="text-2xl cursor-pointer">Account</p><br />
+                        <p className="text-2xl cursor-pointer">Subscription</p><br />
+                        <p className="text-2xl cursor-pointer">Privacy & Legal</p><br />
+                        <p className="text-2xl cursor-pointer">Help</p><br /><hr />
                         <br />
-                        <p>Sign Out</p>
+                        <p className="text-2xl cursor-pointer">Sign Out</p>
                     </div>
                 </div>
             </div>

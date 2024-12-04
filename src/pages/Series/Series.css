@@ -1,10 +1,10 @@
-.hero {
+/* .hero {
     position: relative;
 }
 
 .heroImg {
     width: 100%;
-    /* height: 100vh; */
+    height: 100vh;
     mask-image: linear-gradient(to right, transparent, black 75%);
     -webkit-mask-image: linear-gradient(to right, transparent, black 75%);
 }
@@ -18,13 +18,13 @@
 
 .titleImg {
     width: 90%;
-    max-width: 700px; /*420*/
+    max-width: 700px; 
     margin-bottom: 30px;
 }
 
 .heroTitle p {
     max-width: 700px;
-    font-size: 25px; /*17*/
+    font-size: 25px; 
     margin-bottom: 20px;
     text-align: justify;
 }
@@ -32,13 +32,13 @@
 .heroBtn {
     display: flex;
     gap: 10px;
-    /* margin-bottom: 50px; */
+    margin-bottom: 50px;
 }
 
 .heroBtn .btn {
     border: 0;
     outline: 0;
-    padding: 8px 35px; /*20*/
+    padding: 8px 35px; 
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -72,14 +72,14 @@
 .button {
     display: flex;
     justify-content: space-between;
-    /* margin-bottom: 50px; */
+    margin-bottom: 50px;
 }
 
 .replayAge {
     display: flex;
     gap: 20px;
     align-items: center;
-    /* margin-bottom: 50px; */
+    margin-bottom: 50px;
 }
 
 .replayAge span {
@@ -108,4 +108,4 @@
 
 .categoryCards {
     padding-left: 6%;
-}
+} */

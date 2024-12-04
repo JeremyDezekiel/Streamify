@@ -1,4 +1,4 @@
-.heroMovieDetail {
+/* .heroMovieDetail {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,12 +38,6 @@
     font-weight: 400;
     font-style: italic;
     opacity: 0.7;
-}
-
-.movieInfo h3 {
-    font-size: 1.3em;
-    font-weight: 600;
-    margin: 8px 0;
 }
 
 .movieInfo p {
@@ -103,7 +97,7 @@
     background: #6d6d6e66;
 }
 
-/* Cards */
+
 
 .cardsActor {
     display: flex;
@@ -126,7 +120,7 @@
 .cardsListActor .card img {
     width: 150px;
     border-radius: 4px;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 
 .cardsListActor .card {
@@ -137,4 +131,4 @@
     font-size: 20px;
     margin-top: 5px;
     margin-bottom: 10px;
-}
+} */

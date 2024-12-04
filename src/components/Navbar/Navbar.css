@@ -1,63 +1,63 @@
 .navbar {
-    width: 100%;
+    /* width: 100%;
     padding: 20px 5%;
     display: flex;
     justify-content: space-between;
     position: fixed;
     font-size: 20px;
-    color: #e5e5e5;
+    color: #e5e5e5; */
     background-image: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
-    z-index: 1;
+    /* z-index: 1; */
 }
 
-.navbarLeft {
+/* .navbarLeft {
     display: flex;
     align-items: center;
     gap: 50px;
-}
+} */
 
-.navbarLeft img {
+/* .navbarLeft img {
     width: 90px;
-}
+} */
 
-.navbarMiddle {
+/* .navbarMiddle {
     display: flex;
     align-items: center;
-}
+} */
 
-.navbarMiddle ul{
+/* .navbarMiddle ul{
     display: flex;
     list-style: none;
     gap: 20px;
-}
+} */
 
-.navbar ul li {
+/* .navbar ul li {
     cursor: pointer;
-}
+} */
 
-.navbar .navbarMiddle .linkDecoration {
+/* .navbar .navbarMiddle .linkDecoration {
     text-decoration: none;
     color: white;
-}
+} */
 
-.navbarRight {
+/* .navbarRight {
     display: flex;
     align-items: center;
     gap: 20px;
-}
+} */
 
-.navbarRight .icon {
+/* .navbarRight .icon {
     width: 20px;
     cursor: pointer;
-}
+} */
 
-.navNotif {
+/* .navNotif {
     display: flex;
     align-items: center;
     position: relative;
-}
+} */
 
-.navbar .dropdownNotif {
+/* .navbar .dropdownNotif {
     position: absolute;
     top: 100%;
     right: 0;
@@ -71,30 +71,30 @@
     display: none;
     text-align: center;
     border-top: 5px solid white;
-}
+} */
 
-.navbar .dropdown p {
+/* .navbar .dropdown p {
     font-size: 25px;
-}
+} */
 
 .navNotif:hover .dropdownNotif {
     display: block;
 }
 
-.navbarRight .profileIcon {
+/* .navbarRight .profileIcon {
     border-radius: 4px;
     width: 35px;
-}
+} */
 
-.navProfile {
+/* .navProfile {
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
     position: relative;
-}
+} */
 
-.navbar .dropdown {
+/* .navbar .dropdown {
     position: absolute;
     top: 100%;
     right: 0;
@@ -104,25 +104,24 @@
     border-radius: 2px;
     z-index: 1;
     display: none;
-}
+} */
 
-.navProfile .test {
-    transition: transform 500ms;
-}
 
-.navbar .dropdown p {
+
+/* .navbar .dropdown p {
     font-size: 25px;
     cursor: pointer;
-}
-
+} */
+/*  */
 .navProfile:hover .dropdown {
     display: block;
-}
-
-.navProfile:hover .test {
+} 
+/*  */
+.navProfile:hover .arrow {
     transform: rotate(180deg);
+    transition: transform 500ms;
 }
-
-.navbarMiddle ul li:hover{
+/*  */
+/* .navbarMiddle ul li:hover{
     color: #e5e5e599;
-}
+} */
