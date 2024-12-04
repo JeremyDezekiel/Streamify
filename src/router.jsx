@@ -6,6 +6,7 @@ import NewandPopular from "./pages/NewandPopular/NewandPopular"
 import MainLayout from "./Layout/MainLayout"
 import MovieDetail from "./pages/MovieDetail/MovieDetail"
 import Trailer from "./pages/Trailer/Trailer"
+import Search from "./pages/Search/Search"
 
 const router = createBrowserRouter ([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter ([
             {
                 path: "movie",
                 element: <Movie/>
+            },
+            {
+                path: "search",
+                element: <Search/>
             },
             {
                 path: "newandpopular",

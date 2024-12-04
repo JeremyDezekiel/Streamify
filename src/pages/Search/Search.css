@@ -1,0 +1,43 @@
+.searchContain {
+    padding: 5% 5%;
+}
+
+.search input {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-size: 100%;
+    background: #6d6d6eb3
+}
+
+.searchDefault {
+    margin-top: 5%;
+}
+
+.searchDefault h2 {
+    margin-bottom: 8px;
+}
+
+.cardsShows {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 10px;
+}
+
+.cardsShows .showCards img {
+    width: 280px;
+    border-radius: 4px;
+}
+
+.cardsShows .showCards img:hover {
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+/* Search fitur */
+
+.contentSearch {
+    margin-top: 5%;
+    /* display: none; */
+}

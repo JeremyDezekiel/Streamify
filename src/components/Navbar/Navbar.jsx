@@ -4,10 +4,14 @@ import searchIcon from '../../assets/searchIcon.svg'
 import notifIcon from '../../assets/notifIcon.svg'
 import profile from '../../assets/profile.png'
 import dropdown from '../../assets/dropdown.svg'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function Navbar() {
-    
+    const navigate = useNavigate()
+    const goToSeacrh = () => {
+        navigate(`/search`)
+    }
+
     return (
         <div className="navbar">
             <div className="navbarLeft">
@@ -22,7 +26,7 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbarRight">
-                <img src={searchIcon} alt="SearchIcon" className="icon" />
+                <img src={searchIcon} alt="SearchIcon" className="icon" onClick={() => goToSeacrh()}/>
                 <div className="navNotif">
                     <img src={notifIcon} alt="notifIcon" className="icon" />
                     <div className="dropdownNotif">

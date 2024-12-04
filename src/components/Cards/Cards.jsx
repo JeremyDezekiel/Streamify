@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-// import React from "react"
 import './Cards.css'
 import tmdb from '../../utils/axios'
 import { useNavigate } from "react-router-dom"
