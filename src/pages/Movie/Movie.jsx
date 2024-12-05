@@ -35,9 +35,15 @@ function Movie() {
         <div className="mx-[3%]">
             <div className="h-56 sm:h-64 xl:h-80 2xl:h-[70vh]">
                 <Carousel slideInterval={5000}>
-                    {movies.results?.map(movies => {
+                    {movies.results?.map(movie => {
                         return (
-                            <img key={movies.id} src={`https://image.tmdb.org/t/p/original/${movies.backdrop_path}`} alt={movies.name} onClick={() => goToMovieDetail(movies.id)} />
+                            <>
+                                <img key={movie.id} src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={movie.name} onClick={() => goToMovieDetail(movie.id)} />
+                                <div className="absolute top-[50%] left-10">
+                                    <h1 className="text-7xl font-bold">{movie.title}</h1>
+                                    <p className="text-xl w-[50%] text-justify pt-10">{movie.overview}</p>
+                                </div> 
+                            </>
                         )
                     })}
                 </Carousel>

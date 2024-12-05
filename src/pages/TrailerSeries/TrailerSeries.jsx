@@ -41,11 +41,11 @@ function TrailerSeries() {
                     alt=""
                     onClick={() => goToMovieDetail(idSeries)}
                 />
-                {trailer.results?.find(trailer => trailer.type === "Trailer") ? (
+                {trailer.results?.find(trailer => trailer.type === "Trailer" || trailer.type === "Opening Credits") ? (
                     <iframe className='rounded-xl'
                         width="90%"
                         height="90%"
-                        src={`https://www.youtube.com/embed/${trailer.results.find(trailer => trailer.type === "Trailer").key
+                        src={`https://www.youtube.com/embed/${trailer.results.find(trailer => trailer.type === "Trailer" || trailer.type === "Opening Credits").key
                             }`}
                         title="trailer"
                         frameBorder="0"

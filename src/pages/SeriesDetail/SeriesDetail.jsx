@@ -51,16 +51,44 @@ function SeriesDetail() {
     }
     return (
         <div className="mt-[1%] mx-[6%]">
-            <div className='flex justify-center items-center gap-12'>
-                <div className=''>
-                    <img className="rounded-xl w-full" src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt={details.name} />
+            <div className='justify-center items-center justify-items-center
+                            md:gap-3
+                            lg:gap-5 lg:flex
+                            xl:gap-5
+                            2xl:gap-6'>
+                <div className="lg:w-[350px] xl:w-[450px] 2xl:[550px]">
+                    <img className="rounded-xl 
+                                    w-auto
+                                    md:w-[359px] md:h-[400px]
+                                    lg:w-[500px] lg:h-[400px]
+                                    xl:w-[600px] xl:h-[500px]
+                                    2xl:w-[700px] 2xl:h-[600px]" src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt={details.name} />
                 </div>
-                <div className='contentDetail'>
-                    <div>
-                        <h2 className="text-4xl">{details.name}</h2>
-                        <div className='text-base mb-6'>
-                            <span className='mr-2'>{details.first_air_date}</span>
-                            <span className='mr-2'>•</span>
+                <div className="rounded-xl 
+                                    w-auto
+                                    md:w-[359px] md:h-[400px]
+                                    lg:w-[500px] lg:h-[400px]
+                                    xl:w-[600px] xl:h-[500px]
+                                    2xl:w-[700px] 2xl:h-[600px]">
+                    <div className="mb-2
+                                    md:mb-4
+                                    lg:mb-3
+                                    xl:mb-5
+                                    ">
+                        <h2 className="text-3xl font-bold
+                                        md:text-4xl
+                                        lg:text-5xl
+                                        xl:text-6xl 
+                                        2xl:text-7xl">{details.name}</h2>
+                        <div className='text-xs 
+                                        md:text-sm
+                                        lg:text-base 
+                                        xl:text-lg xl:mt-1
+                                        2xl:text-xl'>
+                            <span>{details.first_air_date}</span>
+                            <span className='mx-2
+                                            md:mx-2
+                                            lg:mx-3'>•</span>
                             {details.genres?.map(details => {
                                 return (
                                     <span key={details.id} className='mr-2'>
@@ -69,37 +97,91 @@ function SeriesDetail() {
                                     </span>
                                 )
                             })}
-                            <span className='mr-2'>•</span>
+                            <span className='mx-2
+                                            md:mx-2
+                                            lg:mx-3'>•</span>
                             <span>{details.number_of_episodes} episode</span>
                         </div>
                     </div>
                     <div>
-                        <ul className='flex list-none gap-10 items-center mb-5'>
-                            <li className='rating flex items-center gap-1 font-semibold text-xl'>
-                                <img className="w-5" src={ratingIcon} alt='' />
+                        <ul className='flex list-none items-center justify-around
+                                        text-sm mb-2
+                                        md:justify-start md:gap-5 md:text-base
+                                        lg:text-lg
+                                        xl:text-xl
+                                        2xl:text-2xl'>
+                            <li className='flex items-center font-semibold 
+                                        gap-1
+                                        md:gap-1
+                                        lg:gap-1
+                                        xl:gap-2'>
+                                <img className="w-5
+                                                md:w-5
+                                                lg:w-6
+                                                xl:w-7
+                                                2xl:w-8" src={ratingIcon} alt='' />
                                 <span>{parseFloat(details.vote_average).toFixed(1)}</span>
                             </li>
-                            <li className=''>
-                                <a>
-                                    <img className="w-5 cursor-pointer hover:bg-red-700" src={favoriteIcon} alt='' />
-                                </a>
+                            <li className='flex items-center font-semibold bg-gray-600 rounded cursor-pointer hover:bg-gray-500 
+                                        py-0 px-1 gap-1
+                                        md:py-0
+                                        lg:py-0 lg:gap-2
+                                        xl:py-1 xl:px-2
+                                        2xl:py-2' onClick={() => goToTrailer(idSeries)}>
+                                <img className="w-3
+                                                md:w-4
+                                                lg:w-5
+                                                xl:w-6
+                                                2xl:w-7" src={iconPlayWhite} alt='iconPlayWhite' />
+                                <span>Play Videos</span>
                             </li>
-                            <li className='py-2 px-5 flex items-center gap-3 font-semibold bg-gray-600 rounded cursor-pointer hover:bg-gray-500' onClick={() => goToTrailer(idSeries)}>
-                                <img className="w-5" src={iconPlayWhite} alt='' />
-                                <span>Play Trailer</span>
+                            <li>
+                                <a>
+                                    <img className="cursor-pointer hover:bg-red-700 
+                                                        w-5
+                                                    md:w-5
+                                                    lg:w-6
+                                                    xl:w-7
+                                                    2xl:w-8" src={favoriteIcon} alt='' />
+                                </a>
                             </li>
                         </ul>
                     </div>
-                    <div className=''>
-                        <h3 className='text-lg font-normal italic opacity-70'>{details.tagline}</h3>
-                        <h3 className="text-xl font-semibold my-2">OverView</h3>
-                        <p className="text-base leading-6 font-normal">{details.overview}</p>
-                        <ul className='mt-5 grid grid-cols-3 gap-6 list-none'>
+                    <div>
+                        <h3 className='font-normal italic opacity-70
+                                            text-xs 
+                                        md:text-sm
+                                        lg:text-base 
+                                        xl:text-xl xl:my-5
+                                        2xl:text-2xl'>{details.tagline}</h3>
+                        <h3 className="font-semibold 
+                                            my-2 text-lg 
+                                        md:text-lg
+                                        lg:text-2xl
+                                        2xl:text-4xl">OverView</h3>
+                        <p className="text-xs
+                                        md:text-sm 
+                                        lg:text-base 
+                                        xl:text-lg xl:mb-3
+                                        2xl:text-xl">{details.overview}</p>
+                        <ul className='grid grid-cols-3 list-none 
+                                        gap-3 mt-5
+                                    md:gap-x-20 md:grid-cols-2 md:inline-grid
+                                    lg:grid-cols-3 lg:gap-x-10
+                                    xl:gap-5
+                                    2xl:gap-x-20'>
                             {credits.crew?.slice(0, 6).map(credits => {
                                 return (
-                                    <li key={credits.id} className='proflie'>
-                                        <p>{credits.name}</p>
-                                        <p className='jobs'>{credits.department}</p>
+                                    <li key={credits.id}>
+                                        <p className="text-sm font-bold
+                                                        md:text-base
+                                                        lg:text-lg 
+                                                        xl:text-xl
+                                                        2xl:text-2xl">{credits.name}</p>
+                                        <p className='text-xs italic
+                                                        md:text-sm
+                                                        lg:text-base 
+                                                        2xl:text-lg'>{credits.department}</p>
                                     </li>
                                 )
                             })}
@@ -107,28 +189,58 @@ function SeriesDetail() {
                     </div>
                 </div>
             </div>
-            <div className="cardsList flex gap-5 overflow-x-scroll mt-12">
+            <div className="cardsList flex overflow-x-scroll
+                                gap-2 mt-5
+                            md:gap-3
+                            lg:gap-3
+                            xl:gap-3
+                            2xl:gap-5">
                 {credits.cast?.map(credits => {
                     if (credits.profile_path) {
                         return (
                             <div key={credits.id}>
-                                <img className="min-w-72 rounded-md" src={`https://image.tmdb.org/t/p/w500/${credits.profile_path}`} alt={credits.name} />
-                                <p className="text-2xl font-bold tracking-tight">{credits.name}</p>
-                                <span className="font-normal">{credits.character}</span>
+                                <img className="rounded-md max-w-64
+                                                w-[117px] 
+                                                md:w-[158px]
+                                                lg:w-[170px] 
+                                                xl:w-[215px] 
+                                                2xl:w-[253px]" src={`https://image.tmdb.org/t/p/w500/${credits.profile_path}`} alt={credits.name} />
+                                <p className="font-bold tracking-tight
+                                            text-sm
+                                            md:text-lg
+                                            lg:text-xl 
+                                            2xl:text-2xl">{credits.name}</p>
+                                <span className="font-normal italic
+                                                text-xs
+                                                md:text-base
+                                                lg:text-base 
+                                                2xl:text-xl">{credits.character}</span>
                             </div>
                         )
                     } else {
                         return (
                             <div key={credits.id}>
-                                <img className="min-w-72 rounded-md" src={avatarNone} alt={credits.name} />
-                                <p className="text-2xl font-bold tracking-tight">{credits.name}</p>
-                                <span className="font-normal">{credits.character}</span>
+                                <img className="rounded-md max-w-56
+                                                w-[117px] 
+                                                md:w-[158px]
+                                                lg:w-[170px] 
+                                                xl:w-[215px]
+                                                2xl:w-[253px]" src={avatarNone} alt={credits.name} />
+                                <p className="font-bold tracking-tight
+                                            text-sm
+                                            md:text-lg
+                                            lg:text-xl 
+                                            2xl:text-2xl">{credits.name}</p>
+                                <span className="font-normal italic
+                                                text-xs
+                                                md:text-base
+                                                lg:text-base 
+                                                2xl:text-xl">{credits.character}</span>
                             </div>
                         )
                     }
                 })}
             </div>
-            <div>SeriesDetail: {params.seriesId}</div>
         </div>
     )
 }

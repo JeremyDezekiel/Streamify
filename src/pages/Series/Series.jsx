@@ -35,9 +35,15 @@ function Series() {
         <div className="mx-[3%]">
             <div className="h-56 sm:h-64 xl:h-80 2xl:h-[70vh]">
                 <Carousel slideInterval={5000}>
-                    {series.results?.map(series => {
+                    {series.results?.map(serie => {
                         return (
-                            <img key={series.id} src={`https://image.tmdb.org/t/p/original/${series.backdrop_path}`} alt={series.name} onClick={() => goToSeriesDetail(series.id)}/>
+                            <>
+                                <img key={serie.id} src={`https://image.tmdb.org/t/p/original/${serie.backdrop_path}`} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={serie.name} onClick={() => goToSeriesDetail(serie.id)} />
+                                <div className="absolute top-[50%] left-10">
+                                    <h1 className="text-7xl font-bold">{serie.name}</h1>
+                                    <p className="text-xl w-[50%] text-justify pt-10">{serie.overview}</p>
+                                </div> 
+                            </>
                         )
                     })}
                 </Carousel>
