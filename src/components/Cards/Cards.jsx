@@ -31,14 +31,14 @@ function Cards ({title, category}) {
 
     return (
         <div id="cards" className="mt-10">
-            <h2 className="mb-2 text-2xl">{title?title : "Popular"}</h2>
-            <div className="flex gap-3 overflow-x-scroll">
+            <h2 className="mb-2 text-2xl">{title ? title : "Popular"}</h2>
+            <div className="cardsList flex gap-3 overflow-x-scroll">
                 {movies.results?.map(movies => {
                     return (
                         <div key={movies.id} className="">
-                            <img className="min-w-72 rounded-md border border-transparent hover:border cursor-pointer hover:border-white" src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} alt="" onClick={() => goToMovieDetail(movies.id)}/>
-                            <p className="text-2xl">{movies.title}</p>
-                            <span>{movies.release_date}</span>
+                            <img className="min-w-72 rounded-md border border-transparent hover:border cursor-pointer hover:border-white" src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} alt="" onClick={() => goToMovieDetail(movies.id)} />
+                            <p className="text-2xl font-bold tracking-tight">{movies.title}</p>
+                            <span className="font-normal">{movies.release_date}</span>
                         </div>
                     )
                 })}

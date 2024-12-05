@@ -1,49 +1,53 @@
-import React from "react"
-// import './Hero.css'
-import playIcon from '../../assets/playIcon.png'
-import infoIcon from '../../assets/infoIcon.png'
-import replayIcon from '../../assets/replayIcon.png'
+import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { Carousel } from "flowbite-react"
 import Cards from '../Cards/Cards'
+import tmdb from '../../utils/axios'
+// import CarouselMovie from "../CarouselMovie/CarouselMovie"
+// import './Hero.css'
 
 function Hero() {
+    const [isLoading, setIsLoading] = useState(true)
+    const [movies, setMovies] = useState([])
+    const [error, setError] = useState(null)
+
+    const fetchMovies = async () => {
+        try {
+            setIsLoading(true)
+            const { data } = await tmdb.get(`/movie/now_playing`)
+            setMovies(data)
+        } catch (error) {
+            console.error(error)
+        } finally {
+            setIsLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        fetchMovies()
+    }, [])
+
+    const navigate = useNavigate()
+    const goToMovieDetail = (movieId) => {
+        navigate(`/moviedetail/${movieId}`)
+    }
+
     return (
-        <div>
-            {/* <div className="hero">
-            <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABXHmi6uJcTXcB8nDD1fHqkT3_F98Ay_uTmhhK8vY0OeDOtoDEXQYJ2wJ_qgcoHnfDDULEHSjzdbKsEcuykDm87j4RsvE0DI9O5IR.webp?r=de5" alt="heroImg" className="heroImg" />
-            <div className="heroTitle">
-                <img src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABc4MOtQa52lcyRrGJ_qZSmTv9_P-Ybu96c6P3HHIPg8wm8e2FI-dmaJ4cQ1tL92EQlNEbZN0QrYiJ5pdJHmGcc2nuw3I63ej3GOG9PovudOjGkhSMB73ZLkf7E_0-3Znfo9gmhqx05xesi7NEEaD7JuA1dDbM3ryriXecVv0qWAuWvuVaM338g.webp?r=c3b" alt="heroTitle" className="titleImg" />
-                <p>Woo Do-hwan ("Bloodhounds") plays a drifter who goes with the flow — until startling news sparks a quest to find his biological father.</p>
-                <div className="button">
-                    <div className="heroBtn">
-                        <button className="btn">
-                            <img src={playIcon} alt="playIcon" />
-                            <span>Play</span>
-                        </button>
-                        <button className="btn infoBtn">
-                            <img src={infoIcon} alt="infoIcon" />
-                            <span>More Info</span>
-                        </button>
-                    </div>
-                    <div className="replayAge">
-                        <img src={replayIcon} alt="replayIcon" />
-                        <span>16 +</span>
-                    </div>
-                </div>
-                <Cards/>
+        <div className="mx-[3%]">
+            {/* <CarouselMovie/> */}
+            <div className="h-56 sm:h-64 xl:h-80 2xl:h-[70vh]">
+                <Carousel slideInterval={5000}>
+                    {movies.results?.map(movies => {
+                        return (
+                            <img key={movies.id} src={`https://image.tmdb.org/t/p/original/${movies.backdrop_path}`} alt={movies.name} onClick={() => goToMovieDetail(movies.id)} />
+                        )
+                    })}
+                </Carousel>
             </div>
-        </div> */}
-            <div className="slideshow-container relative">
-                <img className="min-w-full" src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABcVZ02T8gjK92w0DHMEBRgWj1qzGoqVtI5Vj12Gv8kvjzYaSRHcZMmb-0YtzqQX2CT1bFdgsZllfC2gIawm5ovzKwUgjiFpPXwGW.webp?r=1af" alt="" />
-                <div className="absolute w-full px-14 bottom-0">
-                    <h1 className="text-8xl mb-5">Title Movie</h1>
-                    <p className="text-2xl mb-5">desc Movie</p>
-                    <button className="bg-gray-600 rounded py-2 px-9 font-bold">Go to Movie</button>
-                    <Cards/>
-                </div>
-            </div>
-            <div className="mx-14">
-                <Cards title={'Now Playing'} category={"now_playing"} />
+            <div>
+                <Cards title={'Now Playing'} category={"now_playing"}/>
                 <Cards title={'Upcoming'} category={"upcoming"} />
+                <Cards/>
                 <Cards title={'Top Rated'} category={"top_rated"} />
             </div>
         </div>

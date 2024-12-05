@@ -3,12 +3,18 @@
 @tailwind utilities;
 
 * {
-    margin: 0;
+    /* margin: 0;
     padding: 0;
+    box-sizing: border-box; */
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 body {
     background-color: black;
     color: white;
+}
+
+.cardsList::-webkit-scrollbar {
+    display: none;
 }

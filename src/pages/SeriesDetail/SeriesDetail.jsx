@@ -7,19 +7,19 @@ import iconPlayWhite from '../../assets/iconPlayWhite.png'
 import favoriteIcon from '../../assets/favoriteIcon.png'
 import avatarNone from '../../assets/avatarNone.png'
 
-function MovieDetail() {
+function SeriesDetail() {
     const [isLoading, setIsLoading] = useState(true)
     const [credits, setCredits] = useState([])
     const [details, setDetails] = useState([])
     const [error, setError] = useState(null)
 
     const params = useParams()
-    const idMovie = params.movieId
+    const idSeries = params.seriesId
 
     const fetchDetails = async () => {
         try {
             setIsLoading(true)
-            const { data } = await tmdb.get(`/movie/${idMovie}`)
+            const { data } = await tmdb.get(`/tv/${idSeries}`)
             setDetails(data)
         } catch (error) {
             console.error(error)
@@ -31,7 +31,7 @@ function MovieDetail() {
     const fetchCredits = async () => {
         try {
             setIsLoading(true)
-            const { data } = await tmdb.get(`/movie/${idMovie}/credits`)
+            const { data } = await tmdb.get(`/tv/${idSeries}/credits`)
             setCredits(data)
         } catch (error) {
             console.error(error)
@@ -46,8 +46,8 @@ function MovieDetail() {
     }, [])
 
     const navigate = useNavigate()
-    const goToTrailer = (idMovie) => {
-        navigate(`/trailer/${idMovie}`)
+    const goToTrailer = (idSeries) => {
+        navigate(`/trailerseries/${idSeries}`)
     }
     return (
         <div className="mt-[1%] mx-[6%]">
@@ -57,9 +57,9 @@ function MovieDetail() {
                 </div>
                 <div className='contentDetail'>
                     <div>
-                        <h2 className="text-4xl">{details.original_title}</h2>
+                        <h2 className="text-4xl">{details.name}</h2>
                         <div className='text-base mb-6'>
-                            <span className='mr-2'>{details.release_date}</span>
+                            <span className='mr-2'>{details.first_air_date}</span>
                             <span className='mr-2'>•</span>
                             {details.genres?.map(details => {
                                 return (
@@ -70,7 +70,7 @@ function MovieDetail() {
                                 )
                             })}
                             <span className='mr-2'>•</span>
-                            <span>{details.runtime}</span>
+                            <span>{details.number_of_episodes} episode</span>
                         </div>
                     </div>
                     <div>
@@ -84,7 +84,7 @@ function MovieDetail() {
                                     <img className="w-5 cursor-pointer hover:bg-red-700" src={favoriteIcon} alt='' />
                                 </a>
                             </li>
-                            <li className='py-2 px-5 flex items-center gap-3 font-semibold bg-gray-600 rounded cursor-pointer hover:bg-gray-500' onClick={() => goToTrailer(idMovie)}>
+                            <li className='py-2 px-5 flex items-center gap-3 font-semibold bg-gray-600 rounded cursor-pointer hover:bg-gray-500' onClick={() => goToTrailer(idSeries)}>
                                 <img className="w-5" src={iconPlayWhite} alt='' />
                                 <span>Play Trailer</span>
                             </li>
@@ -128,9 +128,9 @@ function MovieDetail() {
                     }
                 })}
             </div>
-            {/* <div>MovieDetail: {params.movieId}</div> */}
+            <div>SeriesDetail: {params.seriesId}</div>
         </div>
     )
 }
 
-export default MovieDetail
+export default SeriesDetail

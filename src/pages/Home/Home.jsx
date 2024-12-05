@@ -1,13 +1,9 @@
 import React from "react"
-import './Home.css'
+// import './Home.css'
 import Hero from '../../components/Hero/Hero'
 
 function Home() {
-    return (
-        <>
-            <Hero/>
-        </>
-    )
+    return <Hero/>
 }
 
 export default Home

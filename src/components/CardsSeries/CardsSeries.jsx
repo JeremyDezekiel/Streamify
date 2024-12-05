@@ -3,16 +3,16 @@ import React, { useEffect, useState } from "react"
 import tmdb from '../../utils/axios'
 import { useNavigate } from "react-router-dom"
 
-function CardsSeries ({title, category}) {
+function CardsSeries({ title, category }) {
     const [isLoading, setIsLoading] = useState(true)
-    const [movies, setMovies] = useState([])
+    const [series, setSeries] = useState([])
     const [error, setError] = useState(null)
 
-    const fetchMovies = async () => {
+    const fetchSeries = async () => {
         try {
             setIsLoading(true)
-            const { data } = await tmdb.get(`/movie/${category?category:"popular"}`)
-            setMovies(data)
+            const { data } = await tmdb.get(`/tv/${category ? category : "popular"}`)
+            setSeries(data)
         } catch (error) {
             console.error(error)
         } finally {
@@ -21,24 +21,24 @@ function CardsSeries ({title, category}) {
     }
 
     useEffect(() => {
-        fetchMovies()
+        fetchSeries()
     }, [])
 
     const navigate = useNavigate()
-    const goToMovieDetail = (movieId) => {
-        navigate(`/moviedetail/${movieId}`)
+    const goToSeriesDetail = (seriesID) => {
+        navigate(`/seriesdetail/${seriesID}`)
     }
 
     return (
         <div id="cards" className="mt-10">
-            <h2 className="mb-2 text-2xl">{title?title : "Popular"}</h2>
-            <div className="flex gap-3 overflow-x-scroll">
-                {movies.results?.map(movies => {
+            <h2 className="mb-2 text-2xl">{title ? title : "Popular"}</h2>
+            <div className="cardsList flex gap-3 overflow-x-scroll">
+                {series.results?.map(series => {
                     return (
-                        <div key={movies.id} className="">
-                            <img className="min-w-72 rounded-md border border-transparent hover:border cursor-pointer hover:border-white" src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} alt="" onClick={() => goToMovieDetail(movies.id)}/>
-                            <p className="text-2xl">{movies.title}</p>
-                            <span>{movies.release_date}</span>
+                        <div key={series.id}>
+                            <img className="min-w-72 min-h-[431px] rounded-md border border-transparent hover:border cursor-pointer hover:border-white" src={`https://image.tmdb.org/t/p/w500/${series.poster_path}`} alt="" onClick={() => goToSeriesDetail(series.id)} />
+                            <p className="text-2xl font-bold tracking-tight">{series.original_name}</p>
+                            <span className="font-normal">{series.first_air_date}</span>
                         </div>
                     )
                 })}

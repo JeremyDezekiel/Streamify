@@ -9,10 +9,10 @@ const Footer = () => {
     return (
         <div className="py-[30px] px-[4%] max-w-[1000px] my-0 mx-auto">
             <div className="flex gap-5 my-10 mx-0">
-                <img className="w-[30px] cursor-pointer" src={facebookIcon} alt="facebookIcon"/>
-                <img className="w-[30px] cursor-pointer" src={instagramIcon} alt="instagramIcon"/>
-                <img className="w-[30px] cursor-pointer" src={twitterIcon} alt="twitterIcon"/>
-                <img className="w-[30px] cursor-pointer" src={youtubeIcon} alt="youtubeIcon"/>
+                <img className="w-[30px] cursor-pointer" src={facebookIcon} alt="facebookIcon" />
+                <img className="w-[30px] cursor-pointer" src={instagramIcon} alt="instagramIcon" />
+                <img className="w-[30px] cursor-pointer" src={twitterIcon} alt="twitterIcon" />
+                <img className="w-[30px] cursor-pointer" src={youtubeIcon} alt="youtubeIcon" />
             </div>
             <ul className="grid grid-cols-4 gap-4 mb-[30px] list-none text-[#808080]">
                 <li className="hover:cursor-pointer hover:underline">Audio Description</li>

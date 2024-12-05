@@ -1,26 +1,52 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom"
 // import './Series.css'
-import playIcon from '../../assets/playIcon.png'
-import infoIcon from '../../assets/infoIcon.png'
-import replayIcon from '../../assets/replayIcon.png'
 import CardsSeries from '../../components/CardsSeries/CardsSeries'
+import tmdb from '../../utils/axios'
+import { Carousel } from 'flowbite-react'
 
 function Series() {
+    const [isLoading, setIsLoading] = useState(true)
+    const [series, setSeries] = useState([])
+    const [error, setError] = useState (null)
+
+    const fetchSeries = async () => {
+        try {
+            setIsLoading(true)
+            const { data } = await tmdb.get(`/tv/airing_today`)
+            setSeries(data)
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setIsLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        fetchSeries()
+    }, [])
+
+    const navigate = useNavigate()
+    const goToSeriesDetail = (seriesId) => {
+        navigate(`/seriesdetail/${seriesId}`)
+    }
+
     return (
-        <div>
-            <div className="relative">
-                <img className="min-w-full" src="https://occ-0-58-64.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABcVZ02T8gjK92w0DHMEBRgWj1qzGoqVtI5Vj12Gv8kvjzYaSRHcZMmb-0YtzqQX2CT1bFdgsZllfC2gIawm5ovzKwUgjiFpPXwGW.webp?r=1af" alt="" />
-                <div className="absolute w-full px-14 bottom-0">
-                    <h1 className="text-8xl mb-5">Title Movie</h1>
-                    <p className="text-2xl mb-5">desc Movie</p>
-                    <button className="bg-gray-600 rounded py-2 px-9 font-bold">Go to Movie</button>
-                    <CardsSeries/>
-                </div>
+        <div className="mx-[3%]">
+            <div className="h-56 sm:h-64 xl:h-80 2xl:h-[70vh]">
+                <Carousel slideInterval={5000}>
+                    {series.results?.map(series => {
+                        return (
+                            <img key={series.id} src={`https://image.tmdb.org/t/p/original/${series.backdrop_path}`} alt={series.name} onClick={() => goToSeriesDetail(series.id)}/>
+                        )
+                    })}
+                </Carousel>
             </div>
-            <div className="mx-14">
-                <CardsSeries title={'Now Playing'} category={"now_playing"} />
-                <CardsSeries title={'Upcoming'} category={"upcoming"} />
-                <CardsSeries stitle={'Top Rated'} category={"top_rated"} />
+            <div>
+                <CardsSeries/>
+                <CardsSeries title={'Top Rated'} category={"top_rated"} />
+                <CardsSeries title={'Airing Today'} category={"airing_today"} />
+                <CardsSeries title={'On The Air'} category={"on_the_air"} />
             </div>
         </div>
     )
