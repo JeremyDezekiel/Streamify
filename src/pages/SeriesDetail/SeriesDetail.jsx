@@ -83,11 +83,6 @@ function SeriesDetail() {
                                 <img className="w-3 md:w-4 lg:w-5 xl:w-6 2xl:w-7" src={iconPlayWhite} alt='iconPlayWhite' />
                                 <span>Play Videos</span>
                             </li>
-                            <li>
-                                <a>
-                                    <img className="cursor-pointer hover:bg-red-700 w-5 md:w-5 lg:w-6 xl:w-7 2xl:w-8" src={favoriteIcon} alt='' />
-                                </a>
-                            </li>
                         </ul>
                     </div>
                     <div>

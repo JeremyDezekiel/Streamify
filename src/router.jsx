@@ -9,50 +9,55 @@ import Trailer from "./pages/Trailer/Trailer"
 import Search from "./pages/Search/Search"
 import SeriesDetail from "./pages/SeriesDetail/SeriesDetail"
 import TrailerSeries from "./pages/TrailerSeries/TrailerSeries"
+import Favorite from "./pages/Favorite/Favorite"
 
-const router = createBrowserRouter ([
+const router = createBrowserRouter([
     {
-        path: '/',
-        element: <MainLayout/>,
+        path: "/",
+        element: <MainLayout />,
         children: [
             {
                 path: "",
-                element: <Home/>
+                element: <Home />,
             },
             {
                 path: "series",
-                element: <Series/>
+                element: <Series />,
             },
             {
                 path: "movie",
-                element: <Movie/>
+                element: <Movie />,
             },
             {
                 path: "search",
-                element: <Search/>
+                element: <Search />,
             },
             {
                 path: "newandpopular",
-                element: <NewandPopular/>
+                element: <NewandPopular />,
             },
-            {   
+            {
                 path: "moviedetail/:movieId",
-                element: <MovieDetail/>
+                element: <MovieDetail />,
             },
             {
                 path: "seriesdetail/:seriesId",
-                element: <SeriesDetail/>
+                element: <SeriesDetail />,
+            },
+            {
+                path: "favorite",
+                element: <Favorite />,
             },
         ]
     },
     {
         path: "/trailer/:idMovie",
-        element: <Trailer/>
+        element: <Trailer />,
     },
     {
         path: "trailerseries/:seriesId",
-        element: <TrailerSeries/>
-    }
+        element: <TrailerSeries />,
+    },
 ])
 
 export default router
