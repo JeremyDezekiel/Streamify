@@ -33,12 +33,33 @@ function NewandPopular() {
     }
 
     return (
-        <div className='mx-[3%]'>
+        <div className='mx-[6%]'>
             <div className="h-56 sm:h-64 xl:h-80 2xl:h-[70vh]">
                 <Carousel slideInterval={5000}>
                     {movies.results?.map(movies => {
                         return (
-                            <img key={movies.id} src={`https://image.tmdb.org/t/p/original/${movies.backdrop_path}`} alt={movies.name} onClick={() => goToMovieDetail(movies.id)} />
+                            <div key={movies.id}>
+                            <img src={`https://image.tmdb.org/t/p/original/${movies.backdrop_path}`} alt={movies.name} onClick={() => goToMovieDetail(movies.id)} />
+                            <div className="absolute 
+                                                top-[130px] left-4
+                                                md:top-[210px]
+                                                lg:top-[275px]
+                                                xl:top-[340px]
+                                                2xl:top-[450px] 2xl:left-10
+                                ">
+                                    <h1 className="font-bold
+                                                    text-xl
+                                                    lg:text-2xl
+                                                    xl:text-3xl
+                                                    2xl:text-4xl 2xl:mb-5
+                                    ">{movies.title}</h1>
+                                    <p className="movieDescHero text-justify
+                                                    text-sm text-transparent
+                                                md:text-white
+                                                xl:text-base
+                                    ">{movies.overview}</p>
+                                </div>
+                            </div>
                         )
                     })}
                 </Carousel>

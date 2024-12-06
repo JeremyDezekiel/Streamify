@@ -212,7 +212,7 @@ function MovieDetail() {
                             md:gap-3
                             lg:gap-3
                             xl:gap-3
-                            2xl:gap-5
+                            2xl:gap-5 2xl:mt-20
             ">
                 {credits.cast?.map(credits => {
                     if (credits.profile_path) {

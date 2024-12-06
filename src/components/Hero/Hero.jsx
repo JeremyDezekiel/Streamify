@@ -4,7 +4,7 @@ import { Carousel } from "flowbite-react"
 import Cards from '../Cards/Cards'
 import tmdb from '../../utils/axios'
 // import CarouselMovie from "../CarouselMovie/CarouselMovie"
-// import './Hero.css'
+import './Hero.css'
 
 function Hero() {
     const [isLoading, setIsLoading] = useState(false)
@@ -33,19 +33,34 @@ function Hero() {
     }
 
     return (
-        <div className="mx-[3%]">
+        <div className="mx-[6%]">
             {/* <CarouselMovie/> */}
             <div className="h-56 sm:h-64 xl:h-80 2xl:h-[70vh]">
                 <Carousel slideInterval={5000}>
                     {movies.results?.map(movie => {
                         return (
-                            <>
-                                <img key={movie.id} src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={movie.name} onClick={() => goToMovieDetail(movie.id)} />
-                                <div className="absolute top-[50%] left-10">
-                                    <h1 className="text-7xl font-bold">{movie.title}</h1>
-                                    <p className="text-xl w-[50%] text-justify pt-10">{movie.overview}</p>
-                                </div> 
-                            </>
+                            <div key={movie.id}>
+                            <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.name} onClick={() => goToMovieDetail(movie.id)} />
+                            <div className="absolute 
+                                                top-[130px] left-4
+                                                md:top-[210px]
+                                                lg:top-[275px]
+                                                xl:top-[340px]
+                                                2xl:top-[450px] 2xl:left-10
+                                ">
+                                    <h1 className="font-bold
+                                                    text-xl
+                                                    lg:text-2xl
+                                                    xl:text-3xl
+                                                    2xl:text-4xl 2xl:mb-5
+                                    ">{movie.title}</h1>
+                                    <p className="movieDescHero text-justify
+                                                    text-sm text-transparent
+                                                md:text-white
+                                                xl:text-base
+                                    ">{movie.overview}</p>
+                                </div>
+                            </div>
                         )
                     })}
                 </Carousel>

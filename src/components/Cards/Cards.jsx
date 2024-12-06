@@ -35,10 +35,10 @@ function Cards ({title, category}) {
                         lg:mt-4
                         xl:mt-5
         ">
-            <h2 className="mb-2 text-2xl font-bold
-                            md:text-3xl md:mb-3
-                            lg:text-4xl lg:mb-4
-                            xl:text-5xl xl:mb-5
+            <h2 className="mb-2 text-xl font-bold
+                            md:text-2xl md:mb-3
+                            lg:text-3xl lg:mb-4
+                            xl:text-4xl xl:mb-5
             ">{title ? title : "Popular"}</h2>
             <div className="cardsList flex overflow-x-scroll 
                             gap-2
@@ -50,25 +50,25 @@ function Cards ({title, category}) {
                     return (
                         <div key={movies.id}>
                             <img className="border border-transparent rounded-md  hover:border cursor-pointer hover:border-white
-                                            min-w-[127px]
-                                            md:min-w-[172px]
-                                            lg:min-w-[180px]
-                                            xl:min-w-[190px]
-                                            2xl:min-w-[230px]
+                                            min-w-[120px]
+                                            md:min-w-[160px]
+                                            lg:min-w-[167px]
+                                            xl:min-w-[177px]
+                                            2xl:min-w-[215px]
                             " src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} alt="" onClick={() => goToMovieDetail(movies.id)} />
                             <p className="font-semibold tracking-tight
                                         text-lg
                                         md:text-xl
                                         lg:text-2xl
-                                        xl:text-3xl
-                                        2xl:text-4xl
+                                        xl:text-2xl
+                                        2xl:text-2xl
                             ">{movies.title}</p>
                             <span className="font-normal
                                             text-sm
                                             md:text-base
                                             lg:text-lg
-                                            xl:text-xl
-                                            2xl:text-2xl
+                                            xl:text-lg
+                                            2xl:text-lg
                             ">{movies.release_date}</span>
                         </div>
                     )
