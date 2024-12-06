@@ -35,10 +35,10 @@ function TrailerSeries() {
 
     return (
         <>
-            <div className="h-lvh flex justify-center items-center">
+            <div className="flex justify-center items-center h-lvh sm:h-lvh xl:h-lvh 2xl:h-lvh">
                 <img className='absolute top-5 left-5 w-12 cursor-pointer'
                     src={backArrow}
-                    alt=""
+                    alt="backArrow"
                     onClick={() => goToMovieDetail(idSeries)}
                 />
                 {trailer.results?.find(trailer => trailer.type === "Trailer" || trailer.type === "Opening Credits") ? (

@@ -39,7 +39,7 @@ function Search() {
             fetchSearchResults(search)
         }, 500)
         return () => clearTimeout(debounceTimeout)
-        
+
     }, [search])
 
     useEffect(() => {
@@ -51,14 +51,14 @@ function Search() {
         navigate(`/moviedetail/${movieId}`)
     }
     return (
-        <div className='pt-24 px-14'>
-            <div className=''>
-                <input className='w-full h-12 rounded-md px-1 text-xl bg-gray-600' type='text' placeholder='Find movies, shows, and more' onChange={(e) => setSearch(e.target.value)}/>
+        <div className='pt-2 px-[6%]'>
+            <div>
+                <input className='w-full h-10 lg:h-12 rounded-md px-1 text-xl bg-gray-600' type='text' placeholder='Find movies, shows, and more' onChange={(e) => setSearch(e.target.value)} />
             </div>
             <div>
-                <div className='mt-14'>
-                    <div className=''>
-                        <div className='grid grid-cols-6 gap-3'>
+                <div className='pt-5'>
+                    <div>
+                        <div className='grid grid-cols-3 gap-2 lg:grid-cols-4 2xl:grid-cols-6'>
                             {searchResults.results?.map(searchResults => {
                                 return (
                                     <div key={searchResults.id} className=''>
@@ -69,12 +69,12 @@ function Search() {
                         </div>
                     </div>
                 </div>
-                <div className=''>
-                    <h2 className='mb-2 text-3xl'>Trending</h2>
-                    <div className='grid grid-cols-6 gap-3'>
+                <div>
+                    <h2 className='mb-2 text-2xl md:text-3xl'>Trending</h2>
+                    <div className='grid grid-cols-3 gap-2 lg:grid-cols-4 2xl:grid-cols-6'>
                         {trending.results?.map(trending => {
                             return (
-                                <div key={trending.id} className=''>
+                                <div key={trending.id}>
                                     <img className='w-72 rounded border border-transparent cursor-pointer hover:border hover:border-white h-full' src={`https://image.tmdb.org/t/p/w500/${trending.poster_path}`} alt={trending.name} onClick={() => goToMovieDetail(trending.id)} />
                                 </div>
                             )

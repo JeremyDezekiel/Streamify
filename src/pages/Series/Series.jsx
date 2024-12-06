@@ -8,7 +8,7 @@ import { Carousel } from 'flowbite-react'
 function Series() {
     const [isLoading, setIsLoading] = useState(true)
     const [series, setSeries] = useState([])
-    const [error, setError] = useState (null)
+    const [error, setError] = useState(null)
 
     const fetchSeries = async () => {
         try {
@@ -38,25 +38,10 @@ function Series() {
                     {series.results?.map(serie => {
                         return (
                             <div key={serie.id}>
-                            <img src={`https://image.tmdb.org/t/p/original/${serie.backdrop_path}`} alt={serie.name} onClick={() => goToSeriesDetail(serie.id)} />
-                            <div className="absolute 
-                                                top-[130px] left-4
-                                                md:top-[210px]
-                                                lg:top-[275px]
-                                                xl:top-[340px]
-                                                2xl:top-[450px] 2xl:left-10
-                                ">
-                                    <h1 className="font-bold
-                                                    text-xl
-                                                    lg:text-2xl
-                                                    xl:text-3xl
-                                                    2xl:text-4xl 2xl:mb-5
-                                    ">{serie.name}</h1>
-                                    <p className="movieDescHero text-justify
-                                                    text-sm text-transparent
-                                                md:text-white
-                                                xl:text-base
-                                    ">{serie.overview}</p>
+                                <img src={`https://image.tmdb.org/t/p/original/${serie.backdrop_path}`} alt={serie.name} onClick={() => goToSeriesDetail(serie.id)} />
+                                <div className="absolute top-[130px] left-4 md:top-[210px] lg:top-[275px] xl:top-[340px] 2xl:top-[450px] 2xl:left-10">
+                                    <h1 className="font-bold text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 2xl:mb-5">{serie.name}</h1>
+                                    <p className="movieDescHero text-justify text-sm text-transparent md:text-white xl:text-base">{serie.overview}</p>
                                 </div>
                             </div>
                         )
@@ -64,7 +49,7 @@ function Series() {
                 </Carousel>
             </div>
             <div>
-                <CardsSeries/>
+                <CardsSeries />
                 <CardsSeries title={'Top Rated'} category={"top_rated"} />
                 <CardsSeries title={'Airing Today'} category={"airing_today"} />
                 <CardsSeries title={'On The Air'} category={"on_the_air"} />

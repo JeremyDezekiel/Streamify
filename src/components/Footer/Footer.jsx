@@ -7,14 +7,14 @@ import youtubeIcon from '../../assets/youtubeIcon.png'
 
 const Footer = () => {
     return (
-        <div className="py-[30px] px-[4%] max-w-[1000px] my-0 mx-auto">
-            <div className="flex gap-5 my-10 mx-0">
+        <div className="py-[30px] px-[6%] max-w-[1000px] my-0 mx-auto">
+            <div className="flex my-10 mx-0 gap-5 lg:gap-5">
                 <img className="w-[30px] cursor-pointer" src={facebookIcon} alt="facebookIcon" />
                 <img className="w-[30px] cursor-pointer" src={instagramIcon} alt="instagramIcon" />
                 <img className="w-[30px] cursor-pointer" src={twitterIcon} alt="twitterIcon" />
                 <img className="w-[30px] cursor-pointer" src={youtubeIcon} alt="youtubeIcon" />
             </div>
-            <ul className="grid grid-cols-4 gap-4 mb-[30px] list-none text-[#808080]">
+            <ul className="grid mb-[30px] list-none text-[#808080] grid-cols-3 gap-2 md:grid-cols-4 md:gap-4 ">
                 <li className="hover:cursor-pointer hover:underline">Audio Description</li>
                 <li className="hover:cursor-pointer hover:underline">Help Center</li>
                 <li className="hover:cursor-pointer hover:underline">Gift Cards</li>
