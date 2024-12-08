@@ -1,14 +1,14 @@
 import { createBrowserRouter } from "react-router-dom"
 import Home from "./pages/Home/Home"
-import Series from "./pages/Series/Series"
+import TvShows from "./pages/TvShows/TvShows"
 import Movie from "./pages/Movie/Movie"
 import NewandPopular from "./pages/NewandPopular/NewandPopular"
 import MainLayout from "./Layout/MainLayout"
 import MovieDetail from "./pages/MovieDetail/MovieDetail"
 import Trailer from "./pages/Trailer/Trailer"
 import Search from "./pages/Search/Search"
-import SeriesDetail from "./pages/SeriesDetail/SeriesDetail"
-import TrailerSeries from "./pages/TrailerSeries/TrailerSeries"
+import TvShowsDetail from "./pages/TvShowsDetail/TvShowsDetail"
+import TrailerTvShows from "./pages/TrailerTvShows/TrailerTvShows"
 import Favorite from "./pages/Favorite/Favorite"
 
 const router = createBrowserRouter([
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "series",
-                element: <Series />,
+                path: "tvshows",
+                element: <TvShows />,
             },
             {
                 path: "movie",
@@ -41,8 +41,8 @@ const router = createBrowserRouter([
                 element: <MovieDetail />,
             },
             {
-                path: "seriesdetail/:seriesId",
-                element: <SeriesDetail />,
+                path: "tvshowsdetail/:seriesId",
+                element: <TvShowsDetail />,
             },
             {
                 path: "favorite",
@@ -55,8 +55,8 @@ const router = createBrowserRouter([
         element: <Trailer />,
     },
     {
-        path: "trailerseries/:seriesId",
-        element: <TrailerSeries />,
+        path: "trailertvshows/:seriesId",
+        element: <TrailerTvShows />,
     },
 ])
 

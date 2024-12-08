@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import './Search.css'
 import tmdb from '../../utils/axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -56,31 +55,55 @@ function Search() {
                 <input className='w-full h-10 lg:h-12 rounded-md px-1 text-xl bg-gray-600' type='text' placeholder='Find movies, shows, and more' onChange={(e) => setSearch(e.target.value)} />
             </div>
             <div>
-                <div className='pt-5'>
+                {isLoading &&
+                    <div className="flex justify-center items-center min-h-max">
+                        <div className="w-16 h-16 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+                    </div>}
+                {error && <span>Error found</span>}
+                {search ? (
+                    <div className='pt-5'>
+                        <div>
+                            <div className='grid grid-cols-3 gap-2 lg:grid-cols-4 2xl:grid-cols-6'>
+                                {searchResults.results?.map(searchResults => {
+                                    return (
+                                        <>
+                                            {isLoading ? (
+                                                <div className="flex justify-center items-center min-h-max">
+                                                    <div className="w-16 h-16 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+                                                </div>
+                                            ) : (
+                                                <div key={searchResults.id}>
+                                                    <img className='w-72 rounded border border-transparent cursor-pointer hover:border hover:border-white h-full' src={`https://image.tmdb.org/t/p/w500/${searchResults.poster_path}`} alt={searchResults.name} onClick={() => goToMovieDetail(searchResults.id)} />
+                                                </div>
+                                            )}
+                                        </>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                ) : (
                     <div>
-                        <div className='grid grid-cols-3 gap-2 lg:grid-cols-4 2xl:grid-cols-6'>
-                            {searchResults.results?.map(searchResults => {
+                        <h2 className='mb-2 text-2xl md:text-3xl'>Trending</h2>
+                        <div className='grid grid-cols-3 gap-3 lg:grid-cols-4 2xl:grid-cols-6'>
+                            {trending.results?.map(trending => {
                                 return (
-                                    <div key={searchResults.id} className=''>
-                                        <img className='w-72 rounded border border-transparent cursor-pointer hover:border hover:border-white h-full' src={`https://image.tmdb.org/t/p/w500/${searchResults.poster_path}`} alt={searchResults.name} onClick={() => goToMovieDetail(searchResults.id)} />
-                                    </div>
+                                    <>
+                                        {isLoading ? (
+                                            <div className="flex justify-center items-center min-h-screen">
+                                                <div className="w-16 h-16 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+                                            </div>
+                                        ) : (
+                                            <div key={trending.id}>
+                                                <img className='w-72 rounded-lg border border-transparent cursor-pointer hover:border hover:border-white h-full' src={`https://image.tmdb.org/t/p/w500/${trending.poster_path}`} alt={trending.name} onClick={() => goToMovieDetail(trending.id)} />
+                                            </div>
+                                        )}
+                                    </>
                                 )
                             })}
                         </div>
                     </div>
-                </div>
-                <div>
-                    <h2 className='mb-2 text-2xl md:text-3xl'>Trending</h2>
-                    <div className='grid grid-cols-3 gap-2 lg:grid-cols-4 2xl:grid-cols-6'>
-                        {trending.results?.map(trending => {
-                            return (
-                                <div key={trending.id}>
-                                    <img className='w-72 rounded border border-transparent cursor-pointer hover:border hover:border-white h-full' src={`https://image.tmdb.org/t/p/w500/${trending.poster_path}`} alt={trending.name} onClick={() => goToMovieDetail(trending.id)} />
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
+                )}
             </div>
         </div>
     )

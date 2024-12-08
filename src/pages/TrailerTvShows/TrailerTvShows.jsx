@@ -3,18 +3,18 @@ import tmdb from '../../utils/axios'
 import backArrow from '../../assets/back_arrowIcon.png'
 import { useNavigate, useParams } from 'react-router-dom'
 
-function Trailer() {
+function TrailerTvShows() {
     const [isLoading, setIsLoading] = useState(true)
     const [trailer, setTrailer] = useState([])
     const [error, setError] = useState(null)
 
     const params = useParams()
-    const idMovie = params.idMovie
+    const idSeries = params.seriesId
 
     const fetchTrailer = async () => {
         try {
             setIsLoading(true)
-            const { data } = await tmdb.get(`/movie/${idMovie}/videos`)
+            const { data } = await tmdb.get(`/tv/${idSeries}/videos`)
             setTrailer(data)
         } catch (error) {
             console.error(error)
@@ -28,8 +28,8 @@ function Trailer() {
     }, [])
 
     const navigate = useNavigate()
-    const goToMovieDetail = (idMovie) => {
-        navigate(`/moviedetail/${idMovie}`)
+    const goToTvShowsDetail = (idSeries) => {
+        navigate(`/tvshowsdetail/${idSeries}`)
     }
 
     return (
@@ -40,19 +40,19 @@ function Trailer() {
                 </div>
             ) : (
                 <div className="flex justify-center items-center h-lvh sm:h-lvh xl:h-lvh 2xl:h-lvh">
-                    <img className='absolute top-5 left-5 w-12 cursor-pointer' src={backArrow} alt="backArrow" onClick={() => goToMovieDetail(idMovie)}/>
-                    {trailer.results?.find(trailer => trailer.type === "Trailer") ? (
+                    <img className='absolute top-5 left-5 w-12 cursor-pointer' src={backArrow} alt="backArrow" onClick={() => goToTvShowsDetail(idSeries)} />
+                    {trailer.results?.find(trailer => trailer.type === "Trailer" || trailer.type === "Opening Credits") ? (
                         <iframe className='rounded-xl'
                             width="90%"
                             height="90%"
-                            src={`https://www.youtube.com/embed/${trailer.results.find(trailer => trailer.type === "Trailer").key
+                            src={`https://www.youtube.com/embed/${trailer.results.find(trailer => trailer.type === "Trailer" || trailer.type === "Opening Credits").key
                                 }`}
                             title="trailer"
                             frameBorder="0"
                             allowFullScreen
                         ></iframe>
                     ) : (
-                        <p>This trailer is currently unavailable</p>
+                        <p>This video is currently unavailable</p>
                     )}
                 </div>
             )}
@@ -61,4 +61,4 @@ function Trailer() {
     )
 }
 
-export default Trailer
+export default TrailerTvShows

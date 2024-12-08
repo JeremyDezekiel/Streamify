@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom"
 import { Carousel } from "flowbite-react"
 import Cards from '../Cards/Cards'
 import tmdb from '../../utils/axios'
-// import CarouselMovie from "../CarouselMovie/CarouselMovie"
-import './Hero.css'
 
 function Hero() {
     const [isLoading, setIsLoading] = useState(false)
@@ -34,28 +32,36 @@ function Hero() {
 
     return (
         <div className="mx-[6%]">
-            {/* <CarouselMovie/> */}
-            <div className="h-56 sm:h-64 xl:h-80 2xl:h-[70vh]">
-                <Carousel slideInterval={5000}>
-                    {movies.results?.map(movie => {
-                        return (
-                            <div key={movie.id}>
-                            <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.name} onClick={() => goToMovieDetail(movie.id)} />
-                            <div className="absolute top-[130px] left-4 md:top-[210px] lg:top-[275px] xl:top-[340px] 2xl:top-[450px] 2xl:left-10">
-                                    <h1 className="font-bold text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 2xl:mb-5">{movie.title}</h1>
-                                    <p className="movieDescHero text-justify text-sm text-transparent md:text-white xl:text-base">{movie.overview}</p>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </Carousel>
-            </div>
-            <div>
-                <Cards title={'Now Playing'} category={"now_playing"}/>
-                <Cards title={'Upcoming'} category={"upcoming"} />
-                <Cards/>
-                <Cards title={'Top Rated'} category={"top_rated"} />
-            </div>
+            {isLoading ? (
+                <div className="flex justify-center items-center min-h-screen">
+                    <div className="w-16 h-16 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+                </div>
+            ) : (
+                <>
+                    <div className="h-56 sm:h-64 xl:h-80 2xl:h-[70vh]">
+                        <Carousel slideInterval={5000}>
+                            {movies.results?.map(movie => {
+                                return (
+                                    <div key={movie.id}>
+                                        <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.name} onClick={() => goToMovieDetail(movie.id)} />
+                                        <div className="absolute top-[130px] left-4 md:top-[210px] lg:top-[275px] xl:top-[340px] 2xl:top-[450px] 2xl:left-10">
+                                            <h1 className="font-bold text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 2xl:mb-5">{movie.title}</h1>
+                                            <p className="movieDescHero text-justify text-sm text-transparent md:text-white xl:text-base">{movie.overview}</p>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </Carousel>
+                    </div>
+                    <div>
+                        <Cards title={'Now Playing'} category={"now_playing"} />
+                        <Cards title={'Upcoming'} category={"upcoming"} />
+                        <Cards title={'Popular'}/>
+                        <Cards title={'Top Rated'} category={"top_rated"} />
+                    </div>
+                </>
+            )}
+            {error && <span>Error found</span>}
         </div>
     )
 }

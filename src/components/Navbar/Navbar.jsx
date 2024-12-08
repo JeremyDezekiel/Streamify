@@ -21,7 +21,9 @@ function Navbar() {
         <nav className="px-2 py-2.5 dark:border-gray-700 dark:bg-gray-800 sm:px-4 rounded bg-transparent">
             <div className="mx-auto flex flex-wrap items-center justify-between">
                 <div className="flex items-center cursor-pointer">
-                    <img className="mr-3 h-6 sm:h-9" src={logo} alt="Logo"/>
+                    <Link to="/" className="no-underline hover:text-[#e5e5e599]">
+                        <img className="mr-3 h-6 sm:h-9" src={logo} alt="Logo"/>
+                    </Link>
                 </div>
                 <div className="flex md:order-2 gap-4">
                     <img src={searchIcon} alt="SearchIcon" className="w-5 cursor-pointer" onClick={goToSearch} />
@@ -41,7 +43,7 @@ function Navbar() {
                 <div data-testid="flowbite-navbar-collapse" className={`w-full md:block md:w-auto ${isMenuOpen ? 'block' : 'hidden'}`}>
                     <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
                         <li><Link to="/" className="no-underline hover:text-[#e5e5e599]">Home</Link></li>
-                        <li><Link to="/series" className="no-underline hover:text-[#e5e5e599]">Series</Link></li>
+                        <li><Link to="/tvshows" className="no-underline hover:text-[#e5e5e599]">TV Show</Link></li>
                         <li><Link to="/movie" className="no-underline hover:text-[#e5e5e599]">Movie</Link></li>
                         <li><Link to="/newandpopular" className="no-underline hover:text-[#e5e5e599]">New &amp; Popular</Link></li>
                         <li><Link to="/favorite" className="no-underline hover:text-[#e5e5e599]">Favorites</Link></li>
