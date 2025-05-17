@@ -49,7 +49,7 @@ A modern movie and TV show discovery web application built with React, Vite, and
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/streamify.git
+   git clone https://github.com/jeremydezekiel/streamify.git
    cd streamify
    ```
 
